@@ -4,10 +4,35 @@
     ViewData["Title"] = "Admin";
 }
 
-<h2>Admin</h2>
-<header></header>
-<nav>
-	<div id="securityOptions"></div>
-	<div id="miscOptions"></div>
-	<div id="contactUs"></div>
+<header>
+	<img id="headerLogo" src="http://placehold.it/150x150" alt="Logo?" />
+	<h2 id="headerTitle">Its The Header</h2>
+</header>
+<nav class="tab">
+	<button id="securityOptionsBtn" class="tabOptions" onclick="openOptions(event, 'securityOptions')">Security Options</button>
+	<button id="miscOptionsBtn" class="tabOptions" onclick="openOptions(event, 'miscOptions')">Misc Options</button>
+	<button id="contactUsBtn" class="tabOptions" onclick="openOptions(event, 'contactUs')">Contact Us</button>
 </nav>
+
+<div id="securityOptions" class="options">
+	<h1>Security Settings:</h1>
+	<h1>view/delete recordings/imgs:</h1>
+	<h1>camera contols + schedule:</h1>
+</div>
+
+<div id="miscOptions" class="options" style="display:none">
+	<h1>LED Options:</h1>
+	<h1>Proximity Options:</h1>
+	<h1>Video Options:</h1>
+	<h1>Audio Options:</h1>
+	<h1>Mic Options:</h1>
+</div>
+
+<div id="contactUs" class="options" style="display:none">
+	<h1>contact stuff.....</h1>
+	<h1>contact stuff.....</h1>
+	<h1>contact stuff.....</h1>
+	<h1>contact stuff.....</h1>
+	<h1>contact stuff.....</h1>
+	<button>Contact Us Now</button>
+</div>
