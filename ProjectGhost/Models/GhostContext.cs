@@ -11,12 +11,12 @@ namespace Ghost_Db.Models
         public GhostContext(DbContextOptions<GhostContext> options)
              : base(options) { }
 
-        public DbSet<User> User { get; set; }
-        public DbSet<Capture> Capture { get; set; }
-        public DbSet<Ghost> Ghost { get; set; }
-        public DbSet<GhostType> GhostType { get; set; }
-        public DbSet<CameraSchedule> CameraSchedule { get; set; }
-        public DbSet<GhostProtocols> GhostProtocol { get; set; }
+        public DbSet<User> user { get; set; }
+        public DbSet<Capture> capture { get; set; }
+        public DbSet<Ghost> ghost { get; set; }
+        public DbSet<GhostType> ghostType { get; set; }
+        public DbSet<CameraSchedule> cameraSchedule { get; set; }
+        public DbSet<GhostProtocols> ghostProtocol { get; set; }
     
         
     }

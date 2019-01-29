@@ -5,7 +5,10 @@ namespace ProjectGhost
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+        public static Manager Manager = new Manager();
+
+
+        public static void Main(string[] args)
 		{
 			CreateWebHostBuilder(args).Build().Run();
 		}

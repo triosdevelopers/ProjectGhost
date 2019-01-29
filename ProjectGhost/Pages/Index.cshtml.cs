@@ -13,5 +13,11 @@ namespace ProjectGhost.Pages
 		{
 
 		}
-	}
+
+        public void OnPostLogin(string email, string password)
+        {
+            Program.Manager.CheckID(email, password);
+            Response.Redirect("./admin");
+        }
+    }
 }
