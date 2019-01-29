@@ -37,6 +37,8 @@ namespace ProjectGhost
 
                     // Perform a blocking call to accept requests.
                     // You could also user server.AcceptSocket() here.
+
+
                     TcpClient client = server.AcceptTcpClient();
                     Console.WriteLine("Connected!");
 
