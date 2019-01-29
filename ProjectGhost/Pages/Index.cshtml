@@ -4,8 +4,9 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <div>
-	<img src="~/images/projectGhostImage4.jpg" alt="Alternate Text" style="width: 100%; height: 100%; position:absolute;" />
+	<img src="~/images/projectGhostImage4.jpg" alt="Alternate Text" style="width: 100%; height: 100%; position:absolute; z-index:-1;" />
 	<nav>
 		<ul>
 			<li id="login">
@@ -15,7 +16,7 @@
 				<div id="login-content">
 					<form>
 						<fieldset id="inputs">
-							<input id="username" type="email" name="Email" placeholder="Your email address" required>
+							<input id="emailAddress" type="email" name="Email" placeholder="Your email address" required>
 							<input id="password" type="password" name="Password" placeholder="Password" required>
 						</fieldset>
 						<fieldset id="actions">
