@@ -1,8 +1,16 @@
+
+h1 {
+	font-weight: 600;
+}
+.marginTop {
+	margin-top: 50px;
+}
+
 body {
 	height: 100%;
 	width: 100%;
 	margin: 0 auto;
-	background: #fff;
+	/*background: #fff;*/
 }
 header {
 	padding: 10px;
@@ -21,14 +29,7 @@ header {
 	display: inline-block;
 	margin: 10px;
 }
-nav {
-	height: 51px;
-	width: 100%;
-	background: #000;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-#securityOptionsBtn, #miscOptionsBtn, #contactUsBtn {
+#cameraScheduleBtn, #miscOptionsBtn, #contactUsBtn {
 	height: 45px;
 	width: 33%;
 	margin-top: 1px;
@@ -37,56 +38,75 @@ nav {
 
 
 
+/*****************	FOR THE LIVE FEED DIV ******************/
+#liveFeedDiv {
+	background: #000;
+	height: 500px;
+	width: 500px;
+	position: absolute;
+	top: 265px;
+	right: 20px;
+	float: right;
 
-
-
-
+}
+#liveFeed {
+	background: #fff;
+	border: solid 3px #000;
+	height: 300px;
+	margin: 25px;
+}
+#btnApplyChanges {
+	position: absolute;
+	margin-left: 195px;
+	margin-top: 50px;
+}
+/*****************	FOR THE LIVE FEED DIV ******************/
+/*****************	FOR THE RANGER SLIDERS ******************/
+.toggleContainer {
+	width: 5%; /* Width of the outside container */
+	position: relative;
+	bottom: 30px;
+	left: 200px;
+}
 .slidecontainer {
-	width: 100%; /* Width of the outside container */
+  width: 45%; /* Width of the outside container */
 }
 
 /* The slider itself */
 .slider {
-	-webkit-appearance: none; /* Override default CSS styles */
-	appearance: none;
-	width: 100%; /* Full-width */
-	height: 25px; /* Specified height */
-	background: #d3d3d3; /* Grey background */
-	outline: none; /* Remove outline */
-	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
-	transition: opacity .2s;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
 }
 
-	/* Mouse-over effects */
-	.slider:hover {
-		opacity: 1; /* Fully shown on mouse-over */
-	}
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
 
-	/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-	.slider::-webkit-slider-thumb {
-		-webkit-appearance: none; /* Override default look */
-		appearance: none;
-		width: 25px; /* Set a specific slider handle width */
-		height: 25px; /* Slider handle height */
-		background: #4CAF50; /* Green background */
-		cursor: pointer; /* Cursor on hover */
-	}
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
 
-	.slider::-moz-range-thumb {
-		width: 25px; /* Set a specific slider handle width */
-		height: 25px; /* Slider handle height */
-		background: #4CAF50; /* Green background */
-		cursor: pointer; /* Cursor on hover */
-	}
-
-
-
-
-
-
-
-
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+/*****************	FOR THE RANGER SLIDERS ******************/
 /********************* FOR THE TABS *********************/
 /* Style the tab */
 .tab {
