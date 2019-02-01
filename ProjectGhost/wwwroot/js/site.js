@@ -3,18 +3,155 @@
 
 // Write your Javascript code.
 
-// for login and account creation button thing
-$(document).ready(function(){
-  $('#login-trigger').click(function(){
-    $(this).next('#login-content').slideToggle();
-    $(this).toggleClass('active');          
-    
-    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
-      else $(this).find('span').html('&#x25BC;')
-    })
-});
+//--------------- for ghost animation ---------------//
+var isLeft = false;
+var isRight = false;
+var isDown = false;
+var isUp = false;
+var isOpen = false; // for center thing.
 
-// for tabs
+function goLeft()
+{
+	if (!isLeft)
+	{
+		$('#ghostLeft').animate(
+			{
+				left: 240
+			}, 2500, 'swing');
+		isLeft = true
+	}
+	else
+	{
+		$('#ghostLeft').animate(
+			{
+				left: 418
+			}, 2500, 'swing');
+		isLeft = false;
+	}
+}
+
+
+function goDown()
+{
+	if (!isDown) {
+		$('#ghostBottomBack').animate(
+			{
+				top: 472
+			}, 2500, 'swing');
+		$('#ghostBottomFront').animate(
+			{
+				top: 510
+			}, 2500, 'swing');
+		isDown = true;
+	}
+	else
+	{
+		$('#ghostBottomBack').animate(
+			{
+				top: 371
+			}, 2500, 'swing');
+		$('#ghostBottomFront').animate(
+			{
+				top: 410
+			}, 2500, 'swing');
+		isDown = false;
+	}
+}
+
+function goUp()
+{
+	if (!isUp)
+	{
+		$('#ghostTop').animate(
+			{
+				top: 5
+			}, 2500, 'swing');
+		isUp = true;
+	}
+	else
+	{
+		$('#ghostTop').animate(
+			{
+				top: 115
+			}, 2500, 'swing');
+		isUp = false;
+	}	
+}
+
+function goRight()
+{
+	if (!isRight)
+	{
+		$('#ghostRightFront').animate(
+			{
+				left: 900
+			}, 2500, 'swing');
+
+		$('#ghostRightBack').animate(
+			{
+			left: 830
+			}, 2500, 'swing');
+		isRight = true;
+	}
+	else
+	{
+		$('#ghostRightFront').animate(
+			{
+				left: 707
+			}, 2500, 'swing');
+
+		$('#ghostRightBack').animate(
+			{
+			left: 638
+			}, 2500, 'swing');
+		isRight = false;
+	}
+}
+
+function goCenter()
+{
+	if (!isOpen)
+	{
+		isLeft = false;
+		isRight = false;
+		isUp = false;
+		isDown = false;
+		goRight();
+		goLeft();
+		goUp();
+		goDown();
+		isOpen = true;
+
+	}
+	else
+	{
+		isLeft = true;
+		isRight = true;
+		isUp = true;
+		isDown = true;
+		goRight();
+		goLeft();
+		goUp();
+		goDown();
+		isOpen = false;
+	}
+}
+//--------------- for ghost animation ---------------//
+
+
+//--------------- for login and account creation button thing ---------------//
+$(document).ready(function(){
+	$('#login-trigger').click(function () {
+		$(this).next('#login-content').slideToggle();
+		$(this).toggleClass('active');
+
+		if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;');
+		else $(this).find('span').html('&#x25BC;');
+	});
+});
+//--------------- for login and account creation button thing ---------------//
+
+//--------------- for tabs ---------------//
 function openOptions(evt, optionChoice) {
   // Declare all variables
   var i, options, tabOptions;
@@ -35,14 +172,4 @@ function openOptions(evt, optionChoice) {
   document.getElementById(optionChoice).style.display = "block";
   evt.currentTarget.optionChoice += " active";
 }
-
-
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function () {
-	output.innerHTML = this.value;
-}
+//--------------- for tabs ---------------//

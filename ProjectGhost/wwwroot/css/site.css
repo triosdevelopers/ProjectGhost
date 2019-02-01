@@ -143,6 +143,52 @@ header {
 }
 /********************* FOR THE TABS *********************/
 
+/************* FOR GHOST IMG POSITIONING ***************/
+#ghostCenter
+{
+	position: absolute;
+	top: 250px;
+	left: 525px;
+}
+#ghostTop
+{
+	position: absolute;
+	top: 115px;
+	left: 545px;
+}
+#ghostLeft 
+{
+	position: absolute;
+	top: 256px;
+	left: 418px;
+}
+#ghostRightFront	 
+{
+	position: absolute;
+	top: 250px;
+	left: 707px;
+}
+#ghostRightBack 
+{
+	position: absolute;
+	top: 249px;
+	left: 638px;
+}
+#ghostBottomFront
+{
+	position: absolute;
+	top: 410px;
+	left: 545px;
+}
+#ghostBottomBack
+{
+	position: absolute;
+	top: 371px;
+	left: 500px;
+}
+/************* FOR GHOST IMG POSITIONING ***************/
+
+
 /********************* FOR ADD USER *********************/
 
 #serialNumError{
@@ -151,3 +197,4 @@ header {
 }
 
 /********************* FOR ADD USER *********************/
+
