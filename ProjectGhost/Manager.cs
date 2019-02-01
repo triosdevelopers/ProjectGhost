@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProjectGhost
 {
     public class Manager
     {
+        public List<string> GhostNames = new List<string>();
         public int UserID { get; set; }
         public int GhostTypeID { get; set; }
         public int GhostID { get; set; }
@@ -100,6 +99,35 @@ namespace ProjectGhost
                     isAddUser = true;
                 }
                 myConn.Close();
+            }
+        }
+
+
+        public List<string> ReturnGhostNames()
+        {
+            using (SqlConnection myConn = new SqlConnection(cs))
+            {
+
+                SqlCommand GetGhostnames = new SqlCommand();
+                GetGhostnames.Connection = myConn;
+                myConn.Open();
+
+                GetGhostnames.CommandText = ("[spGetGhostnames]");
+                GetGhostnames.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader reader = GetGhostnames.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        GhostNames.Add(Convert.ToString(reader.GetValue(i)));
+                    }
+                }
+
+                reader.Close();
+                myConn.Close();
+                return GhostNames;
             }
         }
     }

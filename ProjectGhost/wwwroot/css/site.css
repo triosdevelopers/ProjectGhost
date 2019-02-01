@@ -75,7 +75,6 @@ header {
 /* The slider itself */
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
   width: 100%; /* Full-width */
   height: 25px; /* Specified height */
   background: #d3d3d3; /* Grey background */
@@ -93,7 +92,6 @@ header {
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
-  appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   background: #4CAF50; /* Green background */
@@ -144,6 +142,7 @@ header {
 	border-top: none;
 }
 /********************* FOR THE TABS *********************/
+
 /************* FOR GHOST IMG POSITIONING ***************/
 #ghostCenter
 {
@@ -188,3 +187,14 @@ header {
 	left: 500px;
 }
 /************* FOR GHOST IMG POSITIONING ***************/
+
+
+/********************* FOR ADD USER *********************/
+
+#serialNumError{
+    font-weight: 500;
+    color: #f00;
+}
+
+/********************* FOR ADD USER *********************/
+

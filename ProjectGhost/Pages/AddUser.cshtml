@@ -2,30 +2,55 @@
 @model ProjectGhost.Pages.AddUserModel
 @{
     ViewData["Title"] = "AddUser";
+
 }
 
 <h2>Create Account</h2>
 
-<form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
+@if (Model.firstAttemptFail)
+{
 
-    <h4>User Information</h4>
-    <input type="text" name="email" placeholder="Email Address" required /><br />
-    <input type="password" name="password" placeholder="Password" required /><br />
+    <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
+        <h4>User Information</h4>
+        <input type="text" name="email" placeholder="Email Address" required /><br />
+        <input type="password" name="password" placeholder="Password" required /><br />
+        <h4>Ghost Information</h4>
+        <input type="text" name="serialNum" placeholder="Serial Number" required />&nbsp;
+        <span id="serialNumError">Serial number must match, AB12CD-AD Format </span><br />
+        <select name="ghostName" required>
+            <option>Your Ghost Name</option>
+            @foreach (var name in Model.GhostNames)
+            {
+                <option>@name</option>
+            }
+        </select><br />
+        <!--<input type="text" name="Ghost Name" placeholder="Ghost Name" required/><br />-->
+        <h4>Camera Schedule</h4>
+        **** not yet available ****<br />
+        <input type="submit" value="Create Account" />
+    </form>
+}
+else
+{
+    <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
+        <h4>User Information</h4>
+        <input type="text" name="email" placeholder="Email Address" required /><br />
+        <input type="password" name="password" placeholder="Password" required /><br />
+        <h4>Ghost Information</h4>
+        <input type="text" name="serialNum" placeholder="Serial Number" required /><br />
+        <select name="ghostName" required>
+            <option>Your Ghost Name</option>
+            @foreach (var name in Model.GhostNames)
+            {
+                <option>@name</option>
+            }
+        </select><br />
+        <!--<input type="text" name="Ghost Name" placeholder="Ghost Name" required/><br />-->
+        <h4>Camera Schedule</h4>
+        **** not yet available ****<br />
+        <input type="submit" value="Create Account" />
+    </form>
+}
 
-    <h4>Ghost Information</h4>
-    <input type="text" name="serialNum" placeholder="Serial Number" required /><br />
-    <select name="ghostName" required>
-        <option>Your Ghost Name</option>
-        <option>Alfred</option>
-        <option>Jarvis</option>
 
-    </select><br />
-    <!--<input type="text" name="Ghost Name" placeholder="Ghost Name" required/><br />-->
-
-
-    <h4>Camera Schedule</h4>
-    **** not yet available ****<br />
-
-    <input type="submit" value="Create Account" />
-</form>
 
