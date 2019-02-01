@@ -175,7 +175,7 @@ function Starfield() {
 	this.fps = 40;
 	this.canvas = null;
 	this.width = 0;
-	this.minVelocity = 10;
+	this.minVelocity = 20;
 	this.maxVelocity = 80;
 	this.stars = 100;
 	this.intervalId = 0;
@@ -184,7 +184,7 @@ function Starfield() {
 Starfield.prototype.initialise = function (div) {
 	this.containerDiv = div;
 	this.width = window.innerWidth;
-	this.height = window.innerHeight;
+	this.height = window.innerHeight + 40;
 
 	let self = this;
 
