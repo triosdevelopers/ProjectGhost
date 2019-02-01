@@ -5,93 +5,93 @@
 }
 
 <header>
-	<img id="headerLogo" src="~/images/ghostLogo.jpg" alt="Logo?" style="height:150px; width: 150px;" />
-	<h2 id="headerTitle">Ghost Protocals</h2>
+    <img id="headerLogo" src="~/images/ghostLogo.jpg" alt="Logo?" style="height:150px; width: 150px;" />
+    <h2 id="headerTitle">Ghost Protocals</h2>
 </header>
 <nav class="tab">
-	<button id="cameraScheduleBtn" class="tabOptions" onclick="openOptions(event, 'cameraSchedule')">Camera Schedule</button>
-	<button id="miscOptionsBtn" class="tabOptions" onclick="openOptions(event, 'miscOptions')">Misc Options</button>
-	<button id="contactUsBtn" class="tabOptions" onclick="openOptions(event, 'contactUs')">Contact Us</button>
+    <button id="cameraScheduleBtn" class="tabOptions" onclick="openOptions(event, 'cameraSchedule')">Camera Schedule</button>
+    <button id="miscOptionsBtn" class="tabOptions" onclick="openOptions(event, 'miscOptions')">Misc Options</button>
+    <button id="contactUsBtn" class="tabOptions" onclick="openOptions(event, 'contactUs')">Contact Us</button>
 </nav>
 
 <!-- FOR CAMERA SCHEDULE TAB -->
 <div id="cameraSchedule" class="options">
-	<h1>schedule</h1>
-	<h1>view/delete recordings/imgs</h1>
-	<h3>Snapshots:</h3>
-	<img src="http://placehold.it/200x200" alt="Alternate Text"/>
-	<h3>Videos:</h3>
-	<img src="http://placehold.it/350x200"/>
+    <h1>schedule</h1>
+    <h1>view/delete recordings/imgs</h1>
+    <h3>Snapshots:</h3>
+    <img src="http://placehold.it/200x200" alt="Alternate Text"/>
+    <h3>Videos:</h3>
+    <img src="http://placehold.it/350x200"/>
 </div>
 
 <!-- FOR MISC SETTINGS TAB -->
 <div id="miscOptions" class="options" style="display:none;">
-	<h1>Camera Settings</h1>
-	<h3>Contrast:</h3>
-	<div class="slidecontainer">
-		<input type="range" min="1" max="100" value="35" class="slider" id="myRange">
-	</div>
-	<h3>Brightness:</h3>
-	<div class="slidecontainer">
-		<input type="range" min="1" max="100" value="55" class="slider" id="myRange">
-	</div>
+    <h1>Camera Settings</h1>
+    <h3>Contrast:</h3>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="35" class="slider" id="myRange">
+    </div>
+    <h3>Brightness:</h3>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="55" class="slider" id="myRange">
+    </div>
 
-	<h1 class="marginTop">LED Options</h1>
-	<h3>LED On/Off:</h3>
-	<div class="toggleContainer">
-		<input type="range" min="0" max="1" value="0" class="slider" id="myRange">
-	</div>
-	<h3>LED Brightness:</h3>
-	<div class="slidecontainer">
-		<input type="range" min="1" max="100" value="55" class="slider" id="myRange">
-	</div>
+    <h1 class="marginTop">LED Options</h1>
+    <h3>LED On/Off:</h3>
+    <div class="toggleContainer">
+        <input type="range" min="0" max="1" value="0" class="slider" id="myRange">
+    </div>
+    <h3>LED Brightness:</h3>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="55" class="slider" id="myRange">
+    </div>
 
-	<h1 class="marginTop">Mic Settings</h1>
-	<h3>Mic On/Off:</h3>
-	<div class="toggleContainer">
-		<input type="range" min="0" max="1" value="0" class="slider" id="myRange">
-	</div>
+    <h1 class="marginTop">Mic Settings</h1>
+    <h3>Mic On/Off:</h3>
+    <div class="toggleContainer">
+        <input type="range" min="0" max="1" value="0" class="slider" id="myRange">
+    </div>
 
-	<h1 class="marginTop">Proximity Settings</h1>
-	<h3>Proximity On/Off:</h3>
-	<div class="toggleContainer">
-		<input type="range" min="0" max="1" value="1" class="slider" id="myRange">
-	</div>
+    <h1 class="marginTop">Proximity Settings</h1>
+    <h3>Proximity On/Off:</h3>
+    <div class="toggleContainer">
+        <input type="range" min="0" max="1" value="1" class="slider" id="myRange">
+    </div>
 
-	<h1 class="marginTop">Audio Settings</h1>
-	<h3>Audio On/Off:</h3>
-	<div class="toggleContainer">
-		<input type="range" min="0" max="1" value="0" class="slider" id="myRange">
-	</div>
-	<h3>Volumn:</h3>
-	<div class="slidecontainer">
-		<input type="range" min="1" max="100" value="75" class="slider" id="myRange">
-	</div>
+    <h1 class="marginTop">Audio Settings</h1>
+    <h3>Audio On/Off:</h3>
+    <div class="toggleContainer">
+        <input type="range" min="0" max="1" value="0" class="slider" id="myRange">
+    </div>
+    <h3>Volumn:</h3>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="75" class="slider" id="myRange">
+    </div>
 
 
-	<div id="liveFeedDiv">
-		<div id="liveFeed">
-			<img src="http://placehold.it/444x295" alt="Live feed" />
-		</div>
-		<div>
-			<button id="btnApplyChanges">Apply Changes</button>
-		</div>
-	</div>
+    <div id="liveFeedDiv">
+        <div id="liveFeed">
+            <img src="http://placehold.it/444x295" alt="Live feed" />
+        </div>
+        <div>
+            <button id="btnApplyChanges">Apply Changes</button>
+        </div>
+    </div>
 </div>
 
 <!-- FOR CONTACT TAB -->
 <div id="contactUs" class="options" style="display:none">
-	<form action="/" method="post">
-		<input type="text" name="email" placeholder="Email Address" required />
-		<input type="text" name="name" placeholder="Name" required />
-	</form>
+    <form action="/" method="post">
+        <input type="text" name="email" placeholder="Email Address" required />
+        <input type="text" name="name" placeholder="Name" required />
+    </form>
 
-	<input type="text" name="ghost" placeholder="Ghost Serial #" />
-	<input type="text" name="number" placeholder="Phone# xxx-xxx-xxxx" />
+    <input type="text" name="ghost" placeholder="Ghost Serial #" />
+    <input type="text" name="number" placeholder="Phone# xxx-xxx-xxxx" />
 
-	<div>
-		<h1>What the issue is?</h1>
-		<textArea style="width: 250px; height: 100px;" placeholder="Tell us the problem."></textArea>
-	</div>
-	<button>Send Email</button>
+    <div>
+        <h1>What the issue is?</h1>
+        <textArea style="width: 250px; height: 100px;" placeholder="Tell us the problem."></textArea>
+    </div>
+    <button>Send Email</button>
 </div>

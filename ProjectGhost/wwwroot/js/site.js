@@ -5,12 +5,12 @@
 
 // for login and account creation button thing
 $(document).ready(function(){
-  $('#login-trigger').click(function(){
-    $(this).next('#login-content').slideToggle();
-    $(this).toggleClass('active');          
-    
-    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
-      else $(this).find('span').html('&#x25BC;')
+    $('#login-trigger').click(function(){
+        $(this).next('#login-content').slideToggle();
+        $(this).toggleClass('active');
+
+        if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+        else $(this).find('span').html('&#x25BC;')
     })
 });
 
@@ -44,5 +44,5 @@ output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
-	output.innerHTML = this.value;
+    output.innerHTML = this.value;
 }
