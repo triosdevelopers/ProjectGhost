@@ -108,12 +108,12 @@ function goRight()
 	{
 		$('#ghostRightFront').animate(
 			{
-				left: 900
+				left: 830
 			}, 2500, 'swing');
 
 		$('#ghostRightBack').animate(
 			{
-			left: 830
+			left: 760
 			}, 2500, 'swing');
 		isRight = true;
 	}
