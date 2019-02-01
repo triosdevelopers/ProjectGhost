@@ -7,10 +7,13 @@ h1 {
 }
 
 body {
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    /*background: #fff;*/
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+nav {
+	background: #000;
 }
 header {
 	padding: 10px;
@@ -30,23 +33,23 @@ header {
 	margin: 10px;
 }
 #cameraScheduleBtn, #miscOptionsBtn, #contactUsBtn {
-    height: 45px;
-    width: 33%;
-    margin-top: 1px;
-    margin-left: 1px;
+	height: 45px;
+	width: 33%;
+	margin-top: 1px;
+	margin-left: 1px;
 }
 
 
 
 /*****************	FOR THE LIVE FEED DIV ******************/
 #liveFeedDiv {
-    background: #000;
-    height: 500px;
-    width: 500px;
-    position: absolute;
-    top: 265px;
-    right: 20px;
-    float: right;
+	background: #000;
+	height: 500px;
+	width: 500px;
+	position: absolute;
+	top: 265px;
+	right: 20px;
+	float: right;
 
 }
 #liveFeed {
@@ -142,7 +145,6 @@ header {
 	border-top: none;
 }
 /********************* FOR THE TABS *********************/
-
 /************* FOR GHOST IMG POSITIONING ***************/
 #ghostCenter
 {
@@ -187,8 +189,6 @@ header {
 	left: 500px;
 }
 /************* FOR GHOST IMG POSITIONING ***************/
-
-
 /********************* FOR ADD USER *********************/
 
 #serialNumError{
