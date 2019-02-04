@@ -184,7 +184,7 @@ function Starfield() {
 Starfield.prototype.initialise = function (div) {
 	this.containerDiv = div;
 	this.width = window.innerWidth;
-	this.height = window.innerHeight + 40;
+	this.height = window.innerHeight + 200;
 
 	let self = this;
 
