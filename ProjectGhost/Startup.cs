@@ -53,7 +53,6 @@ namespace ProjectGhost
 				app.UseHsts();
 			}
 
-			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
 
