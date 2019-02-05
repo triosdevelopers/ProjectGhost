@@ -15,27 +15,6 @@ namespace ProjectGhost
         public string cs = "Server=(localdb)\\ProjectsV13;database=GhostDB;ConnectRetryCount=0;Trusted_Connection=True;MultipleActiveResultSets=true;";
 
 
-        //----------------------- for password hashing -----------------------//
-        // generates hash
-        public static void GenerateSaltedHash(string password, out string hash, out string salt)
-        {
-            var saltBytes = new byte[64];
-            var provider = new RNGCryptoServiceProvider();
-            provider.GetNonZeroBytes(saltBytes);
-            salt = Convert.ToBase64String(saltBytes);
-
-            var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, saltBytes, 10000);
-            hash = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
-        }
-        // verifies password on login?
-        public static bool VerifyPassword(string enteredPassword, string storedHash, string storedSalt)
-        {
-            var saltBytes = Convert.FromBase64String(storedSalt);
-            var rfc2898DeriveBytes = new Rfc2898DeriveBytes(enteredPassword, saltBytes, 10000);
-            return Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256)) == storedHash;
-        }
-        //----------------------- for password hashing -----------------------//
-
         public void CheckID(string email, string password)
         {
             UserID = 0;
@@ -46,7 +25,7 @@ namespace ProjectGhost
                 myConn.Open();
 
                 login.Parameters.AddWithValue("@email", email);
-                login.Parameters.AddWithValue("@password", password);
+                login.Parameters.AddWithValue("@password", Security.HashSHA1(password));
 
                 login.CommandText = ("[spLogin]");
                 login.CommandType = System.Data.CommandType.StoredProcedure;
@@ -110,7 +89,7 @@ namespace ProjectGhost
                 myConn.Open();
 
                 CreateAccount.Parameters.AddWithValue("@email", email);
-                CreateAccount.Parameters.AddWithValue("@password", password);
+                CreateAccount.Parameters.AddWithValue("@password", Security.HashSHA1(password));
                 CreateAccount.Parameters.AddWithValue("@ghostID", GhostID);
                 CreateAccount.CommandText = ("[spAddNewUser]");
                 CreateAccount.CommandType = System.Data.CommandType.StoredProcedure;
@@ -152,6 +131,6 @@ namespace ProjectGhost
                 myConn.Close();
                 return GhostNames;
             }
-        }
+        }        
     }
 }

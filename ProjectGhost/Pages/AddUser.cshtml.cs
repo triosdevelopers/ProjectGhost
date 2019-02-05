@@ -21,7 +21,7 @@ namespace ProjectGhost.Pages
 
         public void OnPostCreateAccount(string email, string password, string serialNum, string ghostName)
         {
-            
+
             string newSerial = serialNum.ToUpper();
             string pattern = "[0-9][0-9][A-Z][A-Z][0-9][0-9]-AD";
 
