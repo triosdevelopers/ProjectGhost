@@ -23,7 +23,5 @@ namespace Ghost_Db.Models
         //GHOST FK
         public int GhostID { get; set; }
         public Ghost Ghost { get; set; }
-
-
     }
 }
