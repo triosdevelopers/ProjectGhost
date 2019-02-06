@@ -1,7 +1,7 @@
 @page
 @model ProjectGhost.Pages.AdminModel
 @{
-    ViewData["Title"] = "Admin";
+	ViewData["Title"] = "Admin";
 }
 
 <header>
@@ -81,17 +81,20 @@
 
 <!-- FOR CONTACT TAB -->
 <div id="contactUs" class="options" style="display:none">
-	<form action="/" method="post">
+	<form method="post" asp-page-handler="contact">
 		<input type="text" name="email" placeholder="Email Address" required />
 		<input type="text" name="name" placeholder="Name" required />
+
+
+		<input type="text" name="ghost" placeholder="Ghost Serial #" required />
+		<input type="text" name="number" placeholder="Phone# xxx-xxx-xxxx" required />
+
+		<h1>What the issue is?</h1>
+		<input type="text" name="message" style="width: 250px; height: 100px;" placeholder="Tell us the problem." required>
+		<input type="submit" name="contact" value="Send Email" />
 	</form>
 
-	<input type="text" name="ghost" placeholder="Ghost Serial #" />
-	<input type="text" name="number" placeholder="Phone# xxx-xxx-xxxx" />
 
-	<div>
-		<h1>What the issue is?</h1>
-		<textArea style="width: 250px; height: 100px;" placeholder="Tell us the problem."></textArea>
-	</div>
-	<button>Send Email</button>
+
+
 </div>

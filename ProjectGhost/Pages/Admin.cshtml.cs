@@ -9,6 +9,10 @@ namespace ProjectGhost.Pages
 {
     public class AdminModel : PageModel
     {
+
+        string userEmail;
+        string ghostSerial; //serial #
+
         public void OnGet()
         {
 

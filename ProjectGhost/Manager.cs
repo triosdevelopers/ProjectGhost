@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Net.Mail;
 using System.Security.Cryptography;
 
 namespace ProjectGhost
@@ -103,7 +104,7 @@ namespace ProjectGhost
                 myConn.Close();
             }
         }
-
+        
 
         public List<string> ReturnGhostNames()
         {
@@ -131,6 +132,8 @@ namespace ProjectGhost
                 myConn.Close();
                 return GhostNames;
             }
-        }        
+        }
+       
+
     }
 }
