@@ -3,12 +3,13 @@
 
 // Write your Javascript code.
 
+
 //--------------- for ghost animation ---------------//
 var isLeft = false;
 var isRight = false;
 var isDown = false;
 var isUp = false;
-var isOpen = false; // for center thing.
+var isOpen = false;
 
 function goLeft()
 {
@@ -37,7 +38,6 @@ function goLeft()
 		isOpen = false;
 	}
 }
-
 
 function goDown()
 {
@@ -279,18 +279,6 @@ starfield.initialise(container);
 starfield.start();
 //--------------- for starfield animation ---------------//
 
-
-//--------------- for login and account creation button thing ---------------//
-$(document).ready(function(){
-	$('#login-trigger').click(function () {
-		$(this).next('#login-content').slideToggle();
-		$(this).toggleClass('active');
-
-		if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;');
-		else $(this).find('span').html('&#x25BC;');
-	});
-});
-//--------------- for login and account creation button thing ---------------//
 
 //--------------- for tabs ---------------//
 function openOptions(evt, optionChoice) {

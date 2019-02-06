@@ -13,7 +13,12 @@ body {
 }
 nav {
 	background: #000;
+    height: 50px;
 }
+    nav span{
+        font-size: 1.5em;
+        font-weight: 500;
+    }
 header {
 	padding: 10px;
 	height: 200px;
@@ -40,19 +45,67 @@ header {
 	margin-top: 1px;
 	margin-left: 1px;
 }
+/*****************	CREATE ACCOUNT PAGE ******************/
+.CreateAccountFields {
+    opacity: 0.85;
+    position: absolute;
+    width: 50%;
+    align-content: center;
+    text-align: center;
+    left: 25%;
+    top: 25%;
+    border: 3px solid #000;
+    border-radius: 25px;
+    padding: 10px;
+    background: #ffd89b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #19547b, #ffd89b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.UserInfo{
+    margin: 8px;
+}
+    .UserInfo span {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 600;
+        margin: 4px;
+    }
+    .UserInfo input {
+        width: 50%;
+        margin: 4px;
+    }
+.GhostInfo {
+    margin: 5px;
+    margin: 4px;
+}
+    .GhostInfo span {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 600;
+        margin: 4px;
+    }
+    .GhostInfo input {
+        width: 50%;
+        margin: 4px;
+    }
+    .GhostInfo select {
+        font-size: 1.2em;
+        width: 50%;
+        margin: 4px;
+    }
 
-
+/*****************	CREATE ACCOUNT PAGE ******************/
 
 /*****************	FOR THE LIVE FEED DIV ******************/
 #liveFeedDiv {
-	background: #fff;
-	border: solid 3px #000;
-	height: 500px;
-	width: 500px;
-	position: absolute;
-	top: 265px;
-	right: 20px;
-	float: right;
+    background: #fff;
+    border: solid 3px #000;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 265px;
+    right: 20px;
+    float: right;
 }
 #liveFeed {
 	background: #fff;

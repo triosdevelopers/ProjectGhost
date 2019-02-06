@@ -3,17 +3,18 @@
 @{
 	ViewData["Title"] = "Home page";
 }
-<div id='stars'>
-	<nav>
-		<form method="post" asp-page-handler="Login">
-			<input type="email" name="email" value="" placeholder="email" required/>
-			<input type="password" name="password" value="" placeholder="password" required/>
-			<input type="submit" name="Login" value="Login" />
-			<a href="./AddUser" title="Create Account">
-				Create Account
-			</a>
-		</form>
-	</nav>
+<div id="stars">
+    <nav>
+        <form method="post" asp-page-handler="Login">
+            <input type="email" name="email" value="" placeholder="email" required />
+            <input type="password" name="password" value="" placeholder="password" required />
+            <input type="submit" name="Login" value="Login" />
+            <a href="./AddUser" title="Create Account">
+                Create Account
+            </a>
+        </form>
+        
+    </nav>
 
 	<div id="GhostBody">
 		<img id="ghostRightBack" src="~/images/GhostSplit/rightBack.png" alt="Alternate Text" />
