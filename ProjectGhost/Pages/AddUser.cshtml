@@ -5,52 +5,69 @@
 
 }
 
-<h2>Create Account</h2>
+<div id="stars">
+    <nav><span>Create Account</span></nav>
+    
 
-@if (Model.firstAttemptFail)
-{
+    @if (Model.firstAttemptFail)
+    {
 
-    <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
-        <h4>User Information</h4>
-        <input type="email" name="email" placeholder="Email Address" required /><br />
-        <input type="password" name="password" placeholder="Password" required /><br />
-        <h4>Ghost Information</h4>
-        <input type="text" name="serialNum" placeholder="Serial Number" required />&nbsp;
-        <span id="serialNumError">Serial number must match, AB12CD-AD Format </span><br />
-        <select name="ghostName" required>
-            <option>Your Ghost Name</option>
-            @foreach (var name in Model.GhostNames)
-            {
-                <option>@name</option>
-            }
-        </select><br />
-        <!--<input type="text" name="Ghost Name" placeholder="Ghost Name" required/><br />-->
-        <h4>Camera Schedule</h4>
-        **** not yet available ****<br />
-        <input type="submit" value="Create Account" />
-    </form>
-}
-else
-{
-    <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
-        <h4>User Information</h4>
-        <input type="email" name="email" placeholder="Email Address" required /><br />
-        <input type="password" name="password" placeholder="Password" required /><br />
-        <h4>Ghost Information</h4>
-        <input type="text" name="serialNum" placeholder="Serial Number" required /><br />
-        <select name="ghostName" required>
-            <option>Your Ghost Name</option>
-            @foreach (var name in Model.GhostNames)
-            {
-                <option>@name</option>
-            }
-        </select><br />
-        <!--<input type="text" name="Ghost Name" placeholder="Ghost Name" required/><br />-->
-        <h4>Camera Schedule</h4>
-        **** not yet available ****<br />
-        <input type="submit" value="Create Account" />
-    </form>
-}
+        <div class="CreateAccountFields">
+            <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
+                <h4>User Information</h4>
+                <input type="email" name="email" placeholder="Email Address" required /><br />
+                <input type="password" name="password" placeholder="Password" required /><br />
+                <h4>Ghost Information</h4>
+                <input type="text" name="serialNum" placeholder="Serial Number" required />&nbsp;
+                <span id="serialNumError">Serial number must match, AB12CD-AD Format </span><br />
+                <select name="ghostName" required>
+                    <option>Your Ghost Name</option>
+                    @foreach (var name in Model.GhostNames)
+                    {
+                        <option>@name</option>
+                    }
+                </select><br />
+                <!--<input type="text" name="Ghost Name" placeholder="Ghost Name" required/><br />-->
+                <h4>Camera Schedule</h4>
+                **** not yet available ****<br />
+                <input type="submit" value="Create Account" />
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="CreateAccountFields">
+            <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
+                <div class="UserInfo">
+                    <span>User Information:</span><br />
+                    <input type="email" name="email" placeholder="Email Address" required /><br />
+                    <input type="password" name="password" placeholder="Password" required /><br />
+                </div>
+                <div class="GhostInfo">
+                    <span>Ghost Information:</span><br />
+                    <input type="text" name="serialNum" placeholder="Serial Number" required /><br />
+                    <select name="ghostName" required>
+                        <option>Your Ghost Name</option>
+                        @foreach (var name in Model.GhostNames)
+                        {
+                            <option>@name</option>
+                        }
+                    </select><br />
+                </div>
+                <div class="CamerShedule">
+                    <h4>Camera Schedule</h4>
+                    **** not yet available ****<br />
+                </div>
+
+                <input type="submit" value="Create Account" />
+            </form>
+
+        </div>
+
+    }
+
+</div>
+
 
 
 

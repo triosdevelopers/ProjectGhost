@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Net.Mail;
 using System.Security.Cryptography;
 
 namespace ProjectGhost
@@ -19,6 +18,7 @@ namespace ProjectGhost
         public void CheckID(string email, string password)
         {
             UserID = 0;
+            GhostID = 0;
             using (SqlConnection myConn = new SqlConnection(cs))
             {
                 SqlCommand login = new SqlCommand();
@@ -36,6 +36,27 @@ namespace ProjectGhost
                 if (result != null)
                 {
                     UserID = Convert.ToInt32(result);
+                }
+
+                myConn.Close();
+
+                //================================================ GETS THE GHOST ID ON LOGIN
+
+                SqlCommand ghostLogin = new SqlCommand();
+                ghostLogin.Connection = myConn;
+                myConn.Open();
+
+                ghostLogin.Parameters.AddWithValue("@email", email);
+                ghostLogin.Parameters.AddWithValue("@password", Security.HashSHA1(password));
+
+                ghostLogin.CommandText = ("[spGhostLogin]");
+                ghostLogin.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var ghost = ghostLogin.ExecuteScalar();
+
+                if (ghost != null)
+                {
+                    GhostID = Convert.ToInt32(result);
                 }
 
                 myConn.Close();
@@ -104,7 +125,7 @@ namespace ProjectGhost
                 myConn.Close();
             }
         }
-        
+
 
         public List<string> ReturnGhostNames()
         {
@@ -133,7 +154,36 @@ namespace ProjectGhost
                 return GhostNames;
             }
         }
-       
 
+        public void AddOptions(int brit, int con, bool led, int vol, bool mic, bool prox, bool audio)
+        {
+            using (SqlConnection myConn = new SqlConnection(cs))
+            {
+
+                int NewOptionsID = 0;
+
+                SqlCommand AddOptions = new SqlCommand();
+                AddOptions.Connection = myConn;
+                myConn.Open();
+
+                AddOptions.Parameters.AddWithValue("@brightness", brit);
+                AddOptions.Parameters.AddWithValue("@contrast", con);
+                AddOptions.Parameters.AddWithValue("@led", led);
+                AddOptions.Parameters.AddWithValue("@volume", vol);
+                AddOptions.Parameters.AddWithValue("@mic", mic);
+                AddOptions.Parameters.AddWithValue("@proximity", prox);
+                AddOptions.Parameters.AddWithValue("@speakers", audio);
+                AddOptions.Parameters.AddWithValue("@ghostID", GhostID);
+                AddOptions.CommandText = ("[spAddOptions]");
+                AddOptions.CommandType = System.Data.CommandType.StoredProcedure;
+                var optionsID = AddOptions.ExecuteScalar();
+
+                if (optionsID != null)
+                {
+                    NewOptionsID = Convert.ToInt32(optionsID);
+                }
+                myConn.Close();
+            }
+        }
     }
 }

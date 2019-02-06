@@ -23,7 +23,8 @@ namespace ProjectGhost.Pages
             }
             else
             {
-                Response.Redirect("./index");
+                Response.Redirect("./AddUser");
+                // add error alert that email or password does not match
             }
             
         }
