@@ -22,12 +22,12 @@ nav {
         margin-left: 80px;
     }
     nav form{
-        float: left;
-        margin-left: 100px;
+        float: right;
+        margin-right: 40px;
     }
     nav form > input {
         padding: 4px;
-        margin-top: 10px;
+        margin-top: 4px;
         border: 1px solid #ccc;
         border-radius: 4px;
         font-size: 1em;
