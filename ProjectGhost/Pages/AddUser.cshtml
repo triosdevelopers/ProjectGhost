@@ -6,14 +6,19 @@
 }
 
 <div id="stars">
-    <nav><span>Create Account</span></nav>
+    <nav>
+        <a href="./index" title="home">
+            <img id="ghostLogo" src="~/images/ghostLogo.png" name="logo"/>
+        </a>
+        <span>Create Account</span>
+    </nav>
     
 
     @if (Model.firstAttemptFail)
     {
 
         <div class="CreateAccountFields">
-            <form id="CreateAccountForm" method="post" asp-page-handler="CreateAccount">
+            <form method="post" asp-page-handler="CreateAccount">
                 <h4>User Information</h4>
                 <input type="email" name="email" placeholder="Email Address" required /><br />
                 <input type="password" name="password" placeholder="Password" required /><br />

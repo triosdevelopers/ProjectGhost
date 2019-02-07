@@ -5,7 +5,10 @@
 }
 <div id="stars">
     <nav>
-        <form method="post" asp-page-handler="Login">
+        <a href="./index" title="home">
+            <img id="ghostLogo" src="~/images/ghostLogo.png" name="logo" />
+        </a>
+        <form id="login_table" method="post" asp-page-handler="Login">
             <input type="email" name="email" value="" placeholder="email" required />
             <input type="password" name="password" value="" placeholder="password" required />
             <input type="submit" name="Login" value="Login" />
@@ -13,7 +16,7 @@
                 Create Account
             </a>
         </form>
-        
+
     </nav>
 
 	<div id="GhostBody">
