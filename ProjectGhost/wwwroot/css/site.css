@@ -25,22 +25,33 @@ nav {
         float: right;
         margin-right: 40px;
     }
-    nav form > input {
-        padding: 4px;
-        margin-top: 4px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 1em;
-        font-family: 'Roboto', sans-serif;
-    }
-    nav form > input[type="submit"] {
-        padding: 4px;
-        border: 1px solid #fff;
-        border-radius: 4px;
-        font-size: 1em;
-        font-family: 'Roboto', sans-serif;
-        background: #fff;
-    }
+        nav form > input {
+            padding: 4px;
+            margin-top: 4px;
+            border: 1px solid #f00;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 800;
+            font-family: 'Roboto', sans-serif;
+        }
+        nav form > input[type="submit"] {
+            padding: 4px;
+            border: 1px solid #f00;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 800;
+            font-family: 'Roboto', sans-serif;
+            background: #fff;
+        }
+        nav form > a {
+            padding: 4px;
+            border: 1px solid #f00;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight:800;
+            font-family: 'Roboto', sans-serif;
+            background: #fff;
+        }
 #ghostLogo {
     float: left;
     margin-left: 20px;
@@ -271,7 +282,7 @@ header {
 /********************* FOR ADD USER *********************/
 
 #serialNumError{
-    font-weight: 500;
+    font-weight: 200;
     color: #f00;
 }
 
