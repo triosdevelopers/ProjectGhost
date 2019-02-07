@@ -27,7 +27,17 @@
 <!-- FOR MISC SETTINGS TAB -->
 <div id="miscOptions" class="options" style="display:none;">
     <form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
-        <h1>Camera Settings</h1>
+        <h1>Audio Settings</h1>
+        <h3>Audio On/Off:</h3>
+        <div class="toggleContainer">
+            <input type="range" min="0" max="1" value="0" class="slider" name="audioToggle" id="AudioToggle">
+        </div>
+        <h3>Volumn:</h3>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" name="volume" id="VolumeControl">
+        </div>
+
+        <h1 class="marginTop">Camera Settings</h1>
         <h3>Contrast:</h3>
         <div class="slidecontainer">
             <input type="range" min="1" max="100" value="50" class="slider" name="contrast" id="ContrastSlider">
@@ -55,15 +65,7 @@
             <input type="range" min="0" max="1" value="0" class="slider" name="proximityToggle" id="ProximityToggle">
         </div>
 
-        <h1 class="marginTop">Audio Settings</h1>
-        <h3>Audio On/Off:</h3>
-        <div class="toggleContainer">
-            <input type="range" min="0" max="1" value="0" class="slider" name="audioToggle" id="AudioToggle">
-        </div>
-        <h3>Volumn:</h3>
-        <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" name="volume" id="VolumeControl">
-        </div>
+
 
         <div id="liveFeedDiv">
             <div id="liveFeed">
