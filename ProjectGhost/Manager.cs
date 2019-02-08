@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
+using System.Data.SQLite;
 
 namespace ProjectGhost
 {
