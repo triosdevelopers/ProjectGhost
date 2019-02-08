@@ -28,15 +28,16 @@ nav {
         nav form > input {
             padding: 4px;
             margin-top: 4px;
-            border: 1px solid #f00;
+            border: 1px solid #000;
             border-radius: 4px;
             font-size: 1em;
             font-weight: 800;
             font-family: 'Roboto', sans-serif;
+            background: #b3e6ff;
         }
         nav form > input[type="submit"] {
             padding: 4px;
-            border: 1px solid #f00;
+            border: 1px solid #000;
             border-radius: 4px;
             font-size: 1em;
             font-weight: 800;
@@ -45,10 +46,11 @@ nav {
         }
         nav form > a {
             padding: 4px;
-            border: 1px solid #f00;
+            border: 1px solid #000;
+            color: #000;
             border-radius: 4px;
             font-size: 1em;
-            font-weight:800;
+            font-weight: 800;
             font-family: 'Roboto', sans-serif;
             background: #fff;
         }
