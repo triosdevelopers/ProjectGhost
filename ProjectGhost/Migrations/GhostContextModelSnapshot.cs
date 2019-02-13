@@ -3,7 +3,6 @@ using System;
 using Ghost_Db.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ProjectGhost.Migrations
@@ -15,15 +14,12 @@ namespace ProjectGhost.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
             modelBuilder.Entity("Ghost_Db.Models.CameraSchedule", b =>
                 {
                     b.Property<int>("CameraScheduleID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<bool>("CameraState");
 
@@ -45,14 +41,13 @@ namespace ProjectGhost.Migrations
 
                     b.HasKey("CameraScheduleID");
 
-                    b.ToTable("CameraSchedule");
+                    b.ToTable("cameraSchedule");
                 });
 
             modelBuilder.Entity("Ghost_Db.Models.Capture", b =>
                 {
                     b.Property<int>("CaptureID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("GhostID");
 
@@ -67,14 +62,13 @@ namespace ProjectGhost.Migrations
 
                     b.HasIndex("GhostID");
 
-                    b.ToTable("Capture");
+                    b.ToTable("capture");
                 });
 
             modelBuilder.Entity("Ghost_Db.Models.Ghost", b =>
                 {
                     b.Property<int>("GhostID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("CameraScheduleID");
 
@@ -88,14 +82,13 @@ namespace ProjectGhost.Migrations
 
                     b.HasIndex("GhostTypeID");
 
-                    b.ToTable("Ghost");
+                    b.ToTable("ghost");
                 });
 
             modelBuilder.Entity("Ghost_Db.Models.GhostProtocols", b =>
                 {
                     b.Property<int>("GhostProtocolsID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("CameraBrightness");
 
@@ -119,14 +112,13 @@ namespace ProjectGhost.Migrations
 
                     b.HasIndex("GhostID");
 
-                    b.ToTable("GhostProtocol");
+                    b.ToTable("ghostProtocol");
                 });
 
             modelBuilder.Entity("Ghost_Db.Models.GhostType", b =>
                 {
                     b.Property<int>("GhostTypeID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description")
                         .HasMaxLength(200);
@@ -139,14 +131,13 @@ namespace ProjectGhost.Migrations
 
                     b.HasKey("GhostTypeID");
 
-                    b.ToTable("GhostType");
+                    b.ToTable("ghostType");
                 });
 
             modelBuilder.Entity("Ghost_Db.Models.User", b =>
                 {
                     b.Property<int>("UserID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("GhostID");
 
@@ -162,7 +153,7 @@ namespace ProjectGhost.Migrations
 
                     b.HasIndex("GhostID");
 
-                    b.ToTable("User");
+                    b.ToTable("user");
                 });
 
             modelBuilder.Entity("Ghost_Db.Models.Capture", b =>

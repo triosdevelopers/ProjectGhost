@@ -8,8 +8,10 @@ namespace Ghost_Db.Models
 {
     public class GhostContext : DbContext
     {
-        public GhostContext(DbContextOptions<GhostContext> options)
-             : base(options) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            builder.UseSqlite("Filename=./Ghost.db");
+        }
 
         public DbSet<User> user { get; set; }
         public DbSet<Capture> capture { get; set; }
