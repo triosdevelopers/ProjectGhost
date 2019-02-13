@@ -80,7 +80,7 @@ function goUp()
 	{
 		$('#ghostTop').animate(
 			{
-				top: 5
+				top: 9
 			}, 2500, 'swing');
 		isUp = true;
 	}
