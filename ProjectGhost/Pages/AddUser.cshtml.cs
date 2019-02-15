@@ -6,6 +6,7 @@ namespace ProjectGhost.Pages
 {
     public class AddUserModel : PageModel
     {
+        
         public List<string> GhostNames = new List<string>();
         public bool firstAttemptFail;
 
