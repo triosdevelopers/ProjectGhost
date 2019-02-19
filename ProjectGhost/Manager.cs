@@ -174,14 +174,20 @@ namespace ProjectGhost
             {
                 int NewOptionsID = 0;
                 con.Open();
-                string sql = "INSERT INTO dbo.GhostProtocol " +
+                string sql = "INSERT INTO GhostProtocol " +
                     "(CameraBrightness, CameraContrast, Volume, LedState, MicState, " +
                     "MotionSensorState, SpeakerState, GhostID) VALUES(" +
-                    brit +","+ contr + "," + led + "," + vol + "," + mic + "," + 
-                    prox + "," + audio + "," + GhostID + ") RETURN SCOPE_IDENTITY() ";
+                   "'" + brit +"','"+ contr + "','" + led + "','" + vol + "','" + mic + "','" + 
+                    prox + "','" + audio + "','" + GhostID + "')";
+                string sql2 = "SELECT * FROM GhostProtocol LAST_INSERT_ROWID ";
                 using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    var optionsID = cmd.ExecuteScalar();
+                    var options = cmd.ExecuteScalar();
+                    
+                }
+                using (SqliteCommand cmd2 = new SqliteCommand(sql2, con))
+                {
+                    var optionsID = cmd2.ExecuteScalar();
                     if (optionsID != null)
                     {
                         NewOptionsID = Convert.ToInt32(optionsID);
