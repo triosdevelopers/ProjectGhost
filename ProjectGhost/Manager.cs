@@ -140,7 +140,6 @@ namespace ProjectGhost
             }
         }
 
-
         public List<string> ReturnGhostNames()
         {
             using (SqliteConnection con = new SqliteConnection(cs))
@@ -154,7 +153,6 @@ namespace ProjectGhost
                     while (reader.Read())
                     {
                         for (int i = 0; i < reader.FieldCount; i++)
-
                         {
                             GhostNames.Add(Convert.ToString(reader.GetValue(i)));
                         }
@@ -167,9 +165,8 @@ namespace ProjectGhost
             }
         }
 
-        public void AddOptions(int brit, int contr, bool led, int vol, bool mic, bool prox, bool audio)
+        public void AddOptions(int brit, int contr, int vol, bool led, bool mic, bool prox, bool audio)
         {
-
             using (SqliteConnection con = new SqliteConnection(cs))
             {
                 int NewOptionsID = 0;
@@ -183,7 +180,6 @@ namespace ProjectGhost
                 using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
                     var options = cmd.ExecuteScalar();
-                    
                 }
                 using (SqliteCommand cmd2 = new SqliteCommand(sql2, con))
                 {
