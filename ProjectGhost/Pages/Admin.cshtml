@@ -4,6 +4,7 @@
 	ViewData["Title"] = "Admin";
 }
 
+
 <header>
 	<img id="headerLogo" src="~/images/ghostLogo.png" alt="Logo?" style="height:150px; width: 150px;" />
 	<h2 id="headerTitle">Ghost Protocals</h2>
@@ -17,11 +18,47 @@
 <!-- FOR CAMERA SCHEDULE TAB -->
 <div id="cameraSchedule" class="options">
 	<h1>schedule</h1>
+
+	<!-- when camera turns on so does proximity (can be turned off manually)-->
+	<table>
+		@for (int j = 0; j < Model.dayOfWeek.Length; j++)
+		{
+			<div style="display: inline-block; margin:2%;">
+				<h3>@Model.dayOfWeek[j]</h3>
+				<tc>
+					On Time:
+					<select>
+						@for (int i = 0; i < Model.timeOfDay.Length; i++)
+						{
+							<option value="@Model.timeOfDay[i]">@Model.timeOfDay[i]</option>
+						}
+					</select>
+					<form action="/" method="post">
+						<input type="radio" name="ampm" value="AM">AM  <input type="radio" name="ampm" value="PM">PM<br>
+					</form>
+					Off Time:
+					<select>
+						@for (int i = 0; i < Model.timeOfDay.Length; i++)
+						{
+							<option value="@Model.timeOfDay[i]">@Model.timeOfDay[i]</option>
+						}
+					</select>
+					<form action="/" method="post">
+						<input type="radio" name="ampm" value="AM">AM  <input type="radio" name="ampm" value="PM">PM<br>
+					</form>
+				</tc>
+			</div>
+		}
+	</table>
+
+	snapshot or recording radio button
+	length of recording range slider
+	delay between recording range slider
 	<h1>view/delete recordings/imgs</h1>
 	<h3>Snapshots:</h3>
-	<img src="http://placehold.it/200x200" alt="Alternate Text"/>
+	<img src="http://placehold.it/200x200" alt="Alternate Text" />
 	<h3>Videos:</h3>
-	<img src="http://placehold.it/350x200"/>
+	<img src="http://placehold.it/350x200" />
 </div>
 
 <!-- FOR MISC SETTINGS TAB -->

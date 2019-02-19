@@ -302,3 +302,6 @@ function openOptions(evt, optionChoice) {
   evt.currentTarget.optionChoice += " active";
 }
 //--------------- for tabs ---------------//
+//--------------- for time slider ---------------//
+
+//--------------- for time slider ---------------//
