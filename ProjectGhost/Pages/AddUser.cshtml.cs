@@ -19,7 +19,7 @@ namespace ProjectGhost.Pages
         {
 
             string newSerial = serialNum.ToUpper();
-            string pattern = "[0-9][0-9][A-Z][A-Z][0-9][0-9]-AD";
+            string pattern = "[0-9][0-9][A-Z][A-Z][0-9][0-9]AD";
 
             Regex regex = new Regex(pattern);
             Match isMatch = regex.Match(newSerial);
