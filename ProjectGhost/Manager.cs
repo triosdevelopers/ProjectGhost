@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.SQLite;
@@ -12,177 +13,183 @@ namespace ProjectGhost
         public int GhostTypeID { get; set; }
         public int GhostID { get; set; }
         public bool isAddUser { get; set; }
-        public string cs = "Server=(localdb)\\ProjectsV13;database=GhostDB;ConnectRetryCount=0;Trusted_Connection=True;MultipleActiveResultSets=true;";
+        public string cs = "Filename=Ghost.db";
 
 
         public void CheckID(string email, string password)
         {
             UserID = 0;
             GhostID = 0;
-            using (SqlConnection myConn = new SqlConnection(cs))
+
+            using (SqliteConnection con = new SqliteConnection(cs))
             {
-                SqlCommand login = new SqlCommand();
-                login.Connection = myConn;
-                myConn.Open();
-
-                login.Parameters.AddWithValue("@email", email);
-                login.Parameters.AddWithValue("@password", Security.HashSHA1(password));
-
-                login.CommandText = ("[spLogin]");
-                login.CommandType = System.Data.CommandType.StoredProcedure;
-
-                var result = login.ExecuteScalar();
-
-                if (result != null)
+                con.Open();
+                string sql = "SELECT us.userID, us.username, " +
+                    "us.password FROM User AS us WHERE us.username='" + email + "'" +
+                    "AND us.password='" + Security.HashSHA1(password) + "'";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    UserID = Convert.ToInt32(result);
+                   
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        UserID = Convert.ToInt32(result);
+                    }
                 }
+                con.Close();
+            }
+            
+            //================================================ GETS THE GHOST ID ON LOGIN
 
-                myConn.Close();
-
-                //================================================ GETS THE GHOST ID ON LOGIN
-
-                SqlCommand ghostLogin = new SqlCommand();
-                ghostLogin.Connection = myConn;
-                myConn.Open();
-
-                ghostLogin.Parameters.AddWithValue("@email", email);
-                ghostLogin.Parameters.AddWithValue("@password", Security.HashSHA1(password));
-
-                ghostLogin.CommandText = ("[spGhostLogin]");
-                ghostLogin.CommandType = System.Data.CommandType.StoredProcedure;
-
-                var ghost = ghostLogin.ExecuteScalar();
-
-                if (ghost != null)
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                con.Open();
+                string sql = "SELECT us.GhostID FROM User as us WHERE us.Username='" + 
+                    email + "' AND us.Password='" + Security.HashSHA1(password) + "'";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    GhostID = Convert.ToInt32(result);
+                    var ghost = cmd.ExecuteScalar();
+                    if (ghost != null)
+                    {
+                        GhostID = Convert.ToInt32(ghost);
+                    }
                 }
-
-                myConn.Close();
+                con.Close();
             }
         }
 
 
         public void CreateAccount(string email, string password, string serialNum, string ghostName)
         {
-            int GhostTypeID = 0;
-            int GhostID = 0;
-            int UserID = 0;
+            //=================================================== gets the ghost type
 
-            using (SqlConnection myConn = new SqlConnection(cs))
+            using (SqliteConnection con = new SqliteConnection(cs))
             {
-                //=================================================== gets the ghost type
-                SqlCommand GetGhostTypeID = new SqlCommand();
-                GetGhostTypeID.Connection = myConn;
-                myConn.Open();
-
-                GetGhostTypeID.Parameters.AddWithValue("@ghostName", ghostName);
-                GetGhostTypeID.CommandText = ("[spGetGhostType]");
-                GetGhostTypeID.CommandType = System.Data.CommandType.StoredProcedure;
-                var ghostType = GetGhostTypeID.ExecuteScalar();
-
-                if (ghostType != null)
+                con.Open();
+                string sql = "SELECT GhostTypeID FROM GhostType WHERE Name='" + ghostName + "'";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    GhostTypeID = Convert.ToInt32(ghostType);
+                    var ghostType = cmd.ExecuteScalar();
+                    if (ghostType != null)
+                    {
+                        GhostTypeID = Convert.ToInt32(ghostType);
+                    }
                 }
-                myConn.Close();
+                con.Close();
+            }
+            //=================================================== adds new ghost to table
 
-                //=================================================== adds new ghost to table
-                SqlCommand CreateGhost = new SqlCommand();
-                CreateGhost.Connection = myConn;
-                myConn.Open();
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                con.Open();
 
-                CreateGhost.Parameters.AddWithValue("@serialNum", serialNum);
-                CreateGhost.Parameters.AddWithValue("@ghostTypeID", GhostTypeID);
-                CreateGhost.CommandText = ("[spAddNewGhost]");
-                CreateGhost.CommandType = System.Data.CommandType.StoredProcedure;
-                var newGhost = CreateGhost.ExecuteScalar();
+                string sql = "INSERT INTO Ghost(SerialNumber, GhostTypeID) VALUES " +
+                    "('" + serialNum + "','" + GhostTypeID + "')";
 
-                if (newGhost != null)
+                string sql2 = " SELECT gh.GhostID FROM ghost AS gh " +
+                "WHERE gh.SerialNumber ='" + serialNum + "'";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    GhostID = Convert.ToInt32(newGhost);
+                    var insert = cmd.ExecuteScalar();
+
+                    using (SqliteCommand cmd2 = new SqliteCommand(sql2, con))
+                    {
+
+                        var newGhost = cmd2.ExecuteScalar();
+                        if (newGhost != null)
+                        {
+                            GhostID = Convert.ToInt32(newGhost);
+                        }
+
+                    }
+
                 }
-                myConn.Close();
+                con.Close();
 
-                //=================================================== adds new user
-                SqlCommand CreateAccount = new SqlCommand();
-                CreateAccount.Connection = myConn;
-                myConn.Open();
+                
+            }
 
-                CreateAccount.Parameters.AddWithValue("@email", email);
-                CreateAccount.Parameters.AddWithValue("@password", Security.HashSHA1(password));
-                CreateAccount.Parameters.AddWithValue("@ghostID", GhostID);
-                CreateAccount.CommandText = ("[spAddNewUser]");
-                CreateAccount.CommandType = System.Data.CommandType.StoredProcedure;
-                var newUser = CreateAccount.ExecuteScalar();
 
-                if (newUser != null)
+            //=================================================== adds new user
+
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                con.Open();
+
+                string sql = "INSERT INTO user (Username, Password, GhostID) " +
+                "VALUES ('" + email + "','" + Security.HashSHA1(password) + "','" + GhostID + "') ";
+
+                string sql2 ="SELECT* FROM user AS us WHERE us.Username = '" + email + "'";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    UserID = Convert.ToInt32(newUser);
-                    isAddUser = true;
+                    var insert = cmd.ExecuteNonQuery();
+
+                   
                 }
-                myConn.Close();
+                
+
+                using (SqliteCommand cmd2 = new SqliteCommand(sql2, con))
+                {
+                    var newUser = cmd2.ExecuteScalar();
+                    if (newUser != null)
+                    {
+                        UserID = Convert.ToInt32(newUser);
+                    }
+                }
+                con.Close();
             }
         }
 
-
         public List<string> ReturnGhostNames()
         {
-            using (SqlConnection myConn = new SqlConnection(cs))
+            using (SqliteConnection con = new SqliteConnection(cs))
             {
+                con.Open();
 
-                SqlCommand GetGhostnames = new SqlCommand();
-                GetGhostnames.Connection = myConn;
-                myConn.Open();
-
-                GetGhostnames.CommandText = ("[spGetGhostnames]");
-                GetGhostnames.CommandType = System.Data.CommandType.StoredProcedure;
-
-                SqlDataReader reader = GetGhostnames.ExecuteReader();
-
-                while (reader.Read())
+                string sql = "SELECT gt.Name FROM GhostType as gt";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    for (int i = 0; i < reader.FieldCount; i++)
+                    SqliteDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        GhostNames.Add(Convert.ToString(reader.GetValue(i)));
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            GhostNames.Add(Convert.ToString(reader.GetValue(i)));
+                        }
                     }
+                    reader.Close();
                 }
+                con.Close();
 
-                reader.Close();
-                myConn.Close();
                 return GhostNames;
             }
         }
 
-        public void AddOptions(int brit, int con, bool led, int vol, bool mic, bool prox, bool audio)
+        public void AddOptions(int brit, int contr, int vol, bool led, bool mic, bool prox, bool audio)
         {
-            using (SqlConnection myConn = new SqlConnection(cs))
+            using (SqliteConnection con = new SqliteConnection(cs))
             {
-
                 int NewOptionsID = 0;
-
-                SqlCommand AddOptions = new SqlCommand();
-                AddOptions.Connection = myConn;
-                myConn.Open();
-
-                AddOptions.Parameters.AddWithValue("@brightness", brit);
-                AddOptions.Parameters.AddWithValue("@contrast", con);
-                AddOptions.Parameters.AddWithValue("@led", led);
-                AddOptions.Parameters.AddWithValue("@volume", vol);
-                AddOptions.Parameters.AddWithValue("@mic", mic);
-                AddOptions.Parameters.AddWithValue("@proximity", prox);
-                AddOptions.Parameters.AddWithValue("@speakers", audio);
-                AddOptions.Parameters.AddWithValue("@ghostID", GhostID);
-                AddOptions.CommandText = ("[spAddOptions]");
-                AddOptions.CommandType = System.Data.CommandType.StoredProcedure;
-                var optionsID = AddOptions.ExecuteScalar();
-
-                if (optionsID != null)
+                con.Open();
+                string sql = "INSERT INTO GhostProtocol " +
+                    "(CameraBrightness, CameraContrast, Volume, LedState, MicState, " +
+                    "MotionSensorState, SpeakerState, GhostID) VALUES(" +
+                   "'" + brit +"','"+ contr + "','" + led + "','" + vol + "','" + mic + "','" + 
+                    prox + "','" + audio + "','" + GhostID + "')";
+                string sql2 = "SELECT * FROM GhostProtocol LAST_INSERT_ROWID ";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
                 {
-                    NewOptionsID = Convert.ToInt32(optionsID);
+                    var options = cmd.ExecuteScalar();
                 }
-                myConn.Close();
+                using (SqliteCommand cmd2 = new SqliteCommand(sql2, con))
+                {
+                    var optionsID = cmd2.ExecuteScalar();
+                    if (optionsID != null)
+                    {
+                        NewOptionsID = Convert.ToInt32(optionsID);
+                    }
+                }
+                con.Close();
             }
         }
     }

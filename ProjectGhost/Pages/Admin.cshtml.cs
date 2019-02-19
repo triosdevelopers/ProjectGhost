@@ -27,19 +27,14 @@ namespace ProjectGhost.Pages
         public void OnPostMiscOptions(int brightness, int contrast, bool ledToggle, int volume,
                                     bool micToggle, bool proximityToggle, bool audioToggle) {
 
-            int brit = brightness;
-            int con = contrast;
-            int vol = volume;
-            bool led = ledToggle;
-            bool mic = micToggle;
-            bool prox = proximityToggle;
-            bool audio = audioToggle;
-
-
-            Program.Manager.AddOptions(brit, con, led, vol, mic, prox, audio);
-
+            Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
 
         }
 
+
+        public void ChangeBrightness()
+        {
+
+        }
     }
 }
