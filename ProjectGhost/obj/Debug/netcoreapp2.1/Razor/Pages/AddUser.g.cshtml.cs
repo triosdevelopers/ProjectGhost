@@ -64,7 +64,7 @@ using ProjectGhost;
             WriteLiteral("\r\n<div id=\"stars\">\r\n    <nav>\r\n        <a href=\"./index\" title=\"home\">\r\n            ");
             EndContext();
             BeginContext(176, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb0ed2b709d5456b976650e8c840c6f9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d229dffc803b4f3a865bca52f4d919e7", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -93,7 +93,7 @@ using ProjectGhost;
             WriteLiteral("        <div class=\"CreateAccountFields\">\r\n            ");
             EndContext();
             BeginContext(405, 1266, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ac726a4ac1343caa6afb4b9157cdd2b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07537d3943944ba1957502e3ffa328a3", async() => {
                 BeginContext(458, 690, true);
                 WriteLiteral(@"
                 <div class=""UserInfo"">
@@ -109,7 +109,7 @@ using ProjectGhost;
                         ");
                 EndContext();
                 BeginContext(1148, 32, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1d1498039464dd2813748f39c236ec1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d2b2fa73116489094f6a3db851a1b3d", async() => {
                     BeginContext(1156, 15, true);
                     WriteLiteral("Your Ghost Name");
                     EndContext();
@@ -138,7 +138,7 @@ using ProjectGhost;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(1302, 22, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "abeccedf291949988e11d230d466daec", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "752dd1301ee0452fa4f0ab40453ee8f5", async() => {
                     BeginContext(1311, 4, false);
 #line 33 "C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\Pages\AddUser.cshtml"
                                Write(name);
@@ -208,7 +208,7 @@ using ProjectGhost;
             WriteLiteral("        <div class=\"CreateAccountFields\">\r\n            ");
             EndContext();
             BeginContext(1768, 1205, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dbf6a2836c7c4a80b82ea550a6d77902", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38a76e0c8f834fa8b71119bbc1cd7f89", async() => {
                 BeginContext(1844, 608, true);
                 WriteLiteral(@"
                 <div class=""UserInfo"">
@@ -223,7 +223,7 @@ using ProjectGhost;
                         ");
                 EndContext();
                 BeginContext(2452, 32, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "775ee9b06ede4557a0eb22e6aa7842ed", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aafd9c7fb83b4bc19761b374fbf9c782", async() => {
                     BeginContext(2460, 15, true);
                     WriteLiteral("Your Ghost Name");
                     EndContext();
@@ -252,7 +252,7 @@ using ProjectGhost;
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(2606, 22, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "20f0ef0d0eb74872b075a303fbbb535f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f0dc3b7a7e94e41b954027ff6d2477d", async() => {
                     BeginContext(2615, 4, false);
 #line 61 "C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\Pages\AddUser.cshtml"
                                Write(name);
