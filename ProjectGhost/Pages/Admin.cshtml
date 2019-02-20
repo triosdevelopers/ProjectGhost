@@ -16,20 +16,16 @@
 </nav>
 
 <!-- FOR CAMERA SCHEDULE TAB -->
-
-
-
 <div id="cameraSchedule" class="options">
 	<h1>schedule</h1>
-	<!--<table>
+	<table>
 			@for (int j = 0; j < Model.dayOfWeek.Length; j++)
 			{
 				<div style="display: inline-block; margin:2%;">
 					<h3>@Model.dayOfWeek[j]</h3>
 
 					<tc>
-						On Time:
-						<select>
+						On Time:<select>
 							@for (int i = 0; i < Model.timeOfDay.Length; i++)
 							{
 								<option value="@Model.timeOfDay[i]">@Model.timeOfDay[i]</option>
@@ -51,7 +47,7 @@
 					</tc>
 				</div>
 			}
-		</table>-->
+	</table>
 	snapshot or recording radio button
 	length of recording range slider
 	delay between recording range slider
@@ -64,61 +60,63 @@
 
 
 
-	<!-- FOR MISC SETTINGS TAB -->
-	<div id="miscOptions" class="options" style="display:none;">
-		<form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
-			<h1>Audio Settings</h1>
-			<h3>Audio On/Off:</h3>
-			<div class="toggleContainer">
-				<input type="range" min="0" max="1" value="0" class="slider" name="audioToggle" id="AudioToggle">
-			</div>
-			<h3>Volumn:</h3>
-			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="50" class="slider" name="volume" id="VolumeControl">
-			</div>
+<!-- FOR MISC SETTINGS TAB -->
+<div id="miscOptions" class="options" style="display:none;">
+	<form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
+		<h1>Audio Settings</h1>
+		<h3>Audio On/Off:</h3>
+		<div class="toggleContainer">
+			<input type="range" min="0" max="1" value="0" class="slider" name="audioToggle" id="AudioToggle">
+		</div>
+		<h3>Volumn:</h3>
+		<div class="slidecontainer">
+			<input type="range" min="1" max="100" value="50" class="slider" name="volume" id="VolumeControl">
+		</div>
 
-			<h1 class="marginTop">Camera Settings</h1>
-			<h3>Contrast:</h3>
-			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="50" class="slider" name="contrast" id="ContrastSlider">
-			</div>
-			<h3>Brightness:</h3>
-			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="50" class="slider" name="brightness" id="BrightnessSlider">
-			</div>
+		<h1 class="marginTop">Camera Settings</h1>
+		<h3>Contrast:</h3>
+		<div class="slidecontainer">
+			<input type="range" min="1" max="100" value="50" class="slider" name="contrast" id="ContrastSlider">
+		</div>
+		<h3>Brightness:</h3>
+		<div class="slidecontainer">
+			<input type="range" min="1" max="100" value="50" class="slider" name="brightness" id="BrightnessSlider">
+		</div>
 
-			<h1 class="marginTop">LED Options</h1>
-			<h3>LED On/Off:</h3>
-			<div class="toggleContainer">
-				<input type="range" min="0" max="1" value="0" class="slider" name="ledToggle" id="LedToggle">
+		<h1 class="marginTop">LED Options</h1>
+		<h3>LED On/Off:</h3>
+		<div class="toggleContainer">
+			<input type="range" min="0" max="1" value="0" class="slider" name="ledToggle" id="LedToggle">
+		</div>
+
+		<h1 class="marginTop">Mic Settings</h1>
+		<h3>Mic On/Off:</h3>
+		<div class="toggleContainer">
+			<input type="range" min="0" max="1" value="0" class="slider" name="micToggle" id="MicToggle">
+		</div>
+
+		<h1 class="marginTop">Proximity Settings</h1>
+		<h3>Proximity On/Off:</h3>
+		<div class="toggleContainer">
+			<input type="range" min="0" max="1" value="0" class="slider" name="proximityToggle" id="ProximityToggle">
+		</div>
+
+
+
+		<div id="liveFeedDiv">
+			<div id="liveFeed">
+				<img src="http://placehold.it/444x295" alt="Live feed" />
 			</div>
-
-			<h1 class="marginTop">Mic Settings</h1>
-			<h3>Mic On/Off:</h3>
-			<div class="toggleContainer">
-				<input type="range" min="0" max="1" value="0" class="slider" name="micToggle" id="MicToggle">
+			<div>
+				<button id="btnApplyChanges"></button>
 			</div>
-
-			<h1 class="marginTop">Proximity Settings</h1>
-			<h3>Proximity On/Off:</h3>
-			<div class="toggleContainer">
-				<input type="range" min="0" max="1" value="0" class="slider" name="proximityToggle" id="ProximityToggle">
-			</div>
+		</div>
+	</form>
+</div>
 
 
-
-			<div id="liveFeedDiv">
-				<div id="liveFeed">
-					<img src="http://placehold.it/444x295" alt="Live feed" />
-				</div>
-				<div>
-					<button id="btnApplyChanges">Apply Changes</button>
-				</div>
-			</div>
-		</form>
-	</div>
 
 	<!-- FOR CONTACT TAB -->
-	<div id="contactUs" class="options" style="display:none">
-		<A HREF="mailto:protoGhost123@gmail.com?body= please be sure to include your username(email), phone number, and serial number.">Click Here To Email Us</A>
-	</div>
+<div id="contactUs" class="options" style="display:none">
+	<A HREF="mailto:protoGhost123@gmail.com?body= please be sure to include your username(email), phone number, and serial number.">Click Here To Email Us</A>
+</div>
