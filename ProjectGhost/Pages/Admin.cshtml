@@ -23,7 +23,9 @@
 			{
 				<div style="display: inline-block; margin: 25px;">
 					<h3>@Model.dayOfWeek[j]</h3>
-
+					<form action="/" method="post">
+						<input type="radio" name="picVideo" value="pic">Pic  <input type="radio" name="picVideo" value="video">Video<br>
+					</form>
 					<tc>
 						On Time:<select>
 							@for (int i = 0; i < Model.timeOfDay.Length; i++)
@@ -47,10 +49,11 @@
 					</tc>
 				</div>
 			}
-	</table>
-	snapshot or recording radio button
+	</table>	
+
 	length of recording range slider
 	delay between recording range slider
+
 	<h1>view/delete recordings/imgs</h1>
 	<h3>Snapshots:</h3>
 	<img src="http://placehold.it/200x200" alt="Alternate Text" />
