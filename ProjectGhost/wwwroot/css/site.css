@@ -410,11 +410,9 @@ header {
     }
 
 /************ PARAMS ************/
-body {
-}
 
 .range-slider, .range-values {
-    width: 400px;
+    width: 60%;
 }
 
 .range-values, #schedule, h1 {
@@ -422,3 +420,74 @@ body {
 }
 
 /********************* FOR TIME SLIDER *********************/
+/********** FOR RECORDING LENGTH SLIDER **********/
+.RecordLength {
+	text-align: center;
+	width: 80%;
+}
+
+.RecordLengthSlider {
+	-webkit-appearance: none;
+	width: 97%;
+	height: 15px;
+	background: #fff;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+	.RecordLengthSlider:hover {
+		opacity: 1;
+	}
+
+	.RecordLengthSlider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+
+	.RecordLengthSlider::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+/********** FOR RECORDING LENGTH SLIDER **********/
+#cameraSchedule {
+	text-align: center;
+}
+#RecordLength1 {
+	background: #ccc;
+	border: 1px solid #000;
+}
+#RecordLength2 {
+	background: #999;
+	border: 1px solid #000;
+}
+#RecordLength3 {
+	background: #ccc;
+	border: 1px solid #000;
+}
+#RecordLength4 {
+	background: #999;
+	border: 1px solid #000;
+}
+#RecordLength5 {
+	background: #ccc;
+	border: 1px solid #000;
+}
+
+#RecordLength6 {
+	background: #999;
+	border: 1px solid #000;
+}
+
+#RecordLength7 {
+	background: #ccc;
+	border: 1px solid #000;
+}

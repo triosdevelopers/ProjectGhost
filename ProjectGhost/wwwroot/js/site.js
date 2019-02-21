@@ -191,6 +191,7 @@ function openOptions(evt, optionChoice) {
   evt.currentTarget.optionChoice += " active";
 }
 //--------------- for tabs ---------------//
+//--------------- for range time slider ---------------//
 var rangeTimes = [];
 
 $(".range-slider").slider({
@@ -239,7 +240,7 @@ function slideTime(event, ui) {
 
         rangeTimes[rangeday_d] = [];
 
-        $rangetime.text('Closed');
+        $rangetime.text('OFF');
     }
 }
 
@@ -258,8 +259,6 @@ $('.range-checkbox').on('change', function () {
     slideTime({ target: $rangeslider });
 });
 
-
-
 slideTime({ target: $('#range-slider-1') });
 slideTime({ target: $('#range-slider-2') });
 slideTime({ target: $('#range-slider-3') });
@@ -268,3 +267,13 @@ slideTime({ target: $('#range-slider-5') });
 slideTime({ target: $('#range-slider-6') });
 slideTime({ target: $('#range-slider-7') });
 updateOpeningHours();
+//--------------- for range time slider ---------------//
+/********** FOR RECORDING LENGTH SLIDER **********/
+var RecordLengthSlider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerText = RecordLengthSlider.value;
+	
+RecordLengthSlider.oninput = function () {
+	output.innerText = this.value;
+}
+/********** FOR RECORDING LENGTH SLIDER **********/
