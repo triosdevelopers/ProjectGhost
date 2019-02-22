@@ -2,6 +2,20 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+var mjpeg_img;
+
+function reload_img() {
+	mjpeg_img.src = "http://10.2.114.26:8080/cam.jpg?time=" + new Date().getTime();
+}
+function error_img() {
+	setTimeout("mjpeg_img.src = 'http://10.2.114.26:8080/cam.jpg?time=' + new Date().getTime();", 100);
+}
+function init() {
+	mjpeg_img = document.getElementById("mjpeg_dest");
+	mjpeg_img.onload = reload_img;
+	mjpeg_img.onerror = error_img;
+	reload_img();
+}
 
 
 //--------------- for ghost animation ---------------//
@@ -172,7 +186,11 @@ function goCenter()
 //--------------- for tabs ---------------//
 function openOptions(evt, optionChoice) {
   // Declare all variables
-  var i, options, tabOptions;
+	var i, options, tabOptions;
+
+	if (optionChoice === "miscOptions") {
+		setTimeout("init();", 100);
+	}
 
   // Get all elements with class="tabcontent" and hide them
   options = document.getElementsByClassName("options");
@@ -269,11 +287,15 @@ slideTime({ target: $('#range-slider-7') });
 updateOpeningHours();
 //--------------- for range time slider ---------------//
 /********** FOR RECORDING LENGTH SLIDER **********/
-var RecordLengthSlider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerText = RecordLengthSlider.value;
-	
-RecordLengthSlider.oninput = function () {
-	output.innerText = this.value;
+function getValue(myRange, output) {
+
+	output.innerText = myRange.value;
+
+	myRange.oninput = function () {
+		output.innerText = this.value;
+	};
 }
+
+
+
 /********** FOR RECORDING LENGTH SLIDER **********/

@@ -6,7 +6,7 @@
 
 
 <header>
-	<img id="headerLogo" src="~/images/ghostLogo.png" alt="Logo?" style="height:150px; width: 150px;" />
+	<img id="headerLogo" src="~/images/ghostLogo.png" alt="Logo?" />
 	<h2 id="headerTitle">Ghost Protocals</h2>
 </header>
 <nav class="tab">
@@ -17,7 +17,7 @@
 
 <!-- FOR CAMERA SCHEDULE TAB -->
 <div id="cameraSchedule" class="options">
-	<h1>Schedule</h1>
+	<h1 id="scheduleH1">Schedule</h1>
 	<br>
 
 	<div class="range-head">
@@ -43,18 +43,18 @@
 		<div class="RecordLength" id="RecordLength1">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value1a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value1a)">
+				<p>Delay Between Recording: <span id="value1b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value1b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value1c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value1c)">
 			</form>
 		</div>
 
 	</div>
-	
+
 
 	<div class="range-day" id="range-day-2" data-day="2">
 		<input type="checkbox" name="day-2" id="day-2" value="1" class="range-checkbox" checked>
@@ -65,13 +65,13 @@
 		<div class="RecordLength" id="RecordLength2">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value2a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value2a)">
+				<p>Delay Between Recording: <span id="value2b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value2b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value2c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value2c)">
 			</form>
 		</div>
 
@@ -86,13 +86,13 @@
 		<div class="RecordLength" id="RecordLength3">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value3a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value3a)">
+				<p>Delay Between Recording: <span id="value3b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value3b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value3c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value3c)">
 			</form>
 		</div>
 
@@ -107,13 +107,13 @@
 		<div class="RecordLength" id="RecordLength4">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value4a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value4a)">
+				<p>Delay Between Recording: <span id="value4b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value4b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value4c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value4c)">
 			</form>
 		</div>
 
@@ -128,13 +128,13 @@
 		<div class="RecordLength" id="RecordLength5">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value5a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value5a)">
+				<p>Delay Between Recording: <span id="value5b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value5b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value5c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value5c)">
 			</form>
 		</div>
 
@@ -149,13 +149,13 @@
 		<div class="RecordLength" id="RecordLength6">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value6a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value6a)">
+				<p>Delay Between Recording: <span id="value6b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value6b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value6c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value6c)">
 			</form>
 		</div>
 
@@ -170,13 +170,13 @@
 		<div class="RecordLength" id="RecordLength7">
 			<form action="/" method="post">
 				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
-				<p>Delay Between Recording: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Length of Recording: <span id="value7a">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value7a)">
+				<p>Delay Between Recording: <span id="value7b">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value7b)">
 				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="demo"></span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" id="myRange">
+				<p>Delay Between Snapshot: <span id="value7c">0</span></p>
+				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value7c)">
 			</form>
 		</div>
 
@@ -184,17 +184,20 @@
 
 	<br style="clear:both">
 
-	<h1>view/delete recordings/imgs</h1>
-	<h3>Snapshots:</h3>
-	<img src="http://placehold.it/200x200" alt="Alternate Text" />
-	<h3>Videos:</h3>
-	<img src="http://placehold.it/350x200" />
+	<div id="snapVid">
+		<h1 id="snapVidH1">view/delete recordings/imgs</h1>
+		<h3>Snapshots:</h3>
+		<img src="http://placehold.it/200x200" alt="Alternate Text" />
+		<h3>Videos:</h3>
+		<img src="http://placehold.it/350x200" />
+	</div>
+
 </div>
 
 
 
 <!-- FOR MISC SETTINGS TAB -->
-<div id="miscOptions" class="options" style="display:none;">
+<div id="miscOptions" class="options">
 	<form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
 		<h1>Audio Settings</h1>
 		<h3>Audio On/Off:</h3>
@@ -236,20 +239,21 @@
 
 
 
-		<div id="liveFeedDiv">			
+		<div id="liveFeedDiv">
 			<div id="liveFeed">
-				<img src="http://placehold.it/444x295" alt="Live feed" />
+				<img id="mjpeg_dest" src="http://10.2.114.26:8080/cam.jpg" alt="Live feed" style="width:100%; " />
 			</div>
 			<div>
 				<button id="btnApplyChanges">Sumbit Changes</button>
 			</div>
 		</div>
+
 	</form>
 </div>
 
 
 
 	<!-- FOR CONTACT TAB -->
-<div id="contactUs" class="options" style="display:none; text-align:center">	
-	<A style="align-content:center;" HREF="mailto:protoGhost123@gmail.com?body= please be sure to include your username(email), phone number, and serial number.">Click Here To Email Us</A>	
+<div id="contactUs" class="options">	
+	<A style="align-content:center;" HREF="mailto:protoGhost123@gmail.com?body= please be sure to include your: Username(email), Phone Number, Serial Number">Click Here To Email Us</A>	
 </div>
