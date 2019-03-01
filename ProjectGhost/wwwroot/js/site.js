@@ -2,6 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+
 var mjpeg_img;
 
 function reload_img() {
@@ -201,12 +202,21 @@ function openOptions(evt, optionChoice) {
   // Get all elements with class="tablinks" and remove the class "active"
   tabOptions = document.getElementsByClassName("tabOptions");
   for (i = 0; i < tabOptions.length; i++) {
-    tabOptions[i].className = tabOptions[i].className.replace(" active", "");
-  }
+      tabOptions[i].className = tabOptions[i].className.replace(" active", "");
+      document.getElementById('cameraScheduleBtn').style.background = "#f1f1f1";
+      document.getElementById('cameraScheduleBtn').style.color = "#000";
 
+      document.getElementById('miscOptionsBtn').style.background = "#f1f1f1";
+      document.getElementById('miscOptionsBtn').style.color = "#000";
+
+      document.getElementById('contactUsBtn').style.background = "#f1f1f1";
+      document.getElementById('contactUsBtn').style.color = "#000";
+  }
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(optionChoice).style.display = "block";
-  evt.currentTarget.optionChoice += " active";
+    document.getElementById(optionChoice).style.display = "block";
+    document.getElementById(optionChoice + 'Btn').style.background = "#000";
+    document.getElementById(optionChoice + 'Btn').style.color = "#fff";
+	evt.currentTarget.optionChoice += " active";
 }
 //--------------- for tabs ---------------//
 //--------------- for range time slider ---------------//
@@ -284,18 +294,36 @@ slideTime({ target: $('#range-slider-4') });
 slideTime({ target: $('#range-slider-5') });
 slideTime({ target: $('#range-slider-6') });
 slideTime({ target: $('#range-slider-7') });
-updateOpeningHours();
 //--------------- for range time slider ---------------//
-/********** FOR RECORDING LENGTH SLIDER **********/
+//---------------  FOR RECORDING LENGTH SLIDER ---------------//
 function getValue(myRange, output) {
 
-	output.innerText = myRange.value;
+    output.innerText = myRange.value;
 
 	myRange.oninput = function () {
 		output.innerText = this.value;
 	};
 }
 
+function toggleValue(myRange, output) {
+
+    if (myRange.value == 0) {
+        output.innerText = "Off";
+        myRange.oninput = function () {
+            output.innerText = "Off";
+        };
+    }
+    else if (myRange.value == 1) {
+        output.innerText = "On";
+        myRange.oninput = function () {
+            output.innerText = "On";
+        };
+    }
+    else {
+        alert('not working at all');
+    }
+}
 
 
-/********** FOR RECORDING LENGTH SLIDER **********/
+
+//---------------  FOR RECORDING LENGTH SLIDER  ---------------//

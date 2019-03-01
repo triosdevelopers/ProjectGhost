@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ProjectGhost.Pages
 {
@@ -17,24 +10,54 @@ namespace ProjectGhost.Pages
             "10:45", "11:00", "11:15", "11:30", "11:45"};
         public string[] dayOfWeek = {"Sunday", "Monday", "Teusday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
+        public int OptionsID;
+        public int Brightness = Program.Manager.Brightness;
+        public int Contrast = Program.Manager.Contrast;
+        public int Led = Program.Manager.Led;
+        public int Volume = Program.Manager.Volume;
+        public int Mic = Program.Manager.Microphone;
+        public int Prox = Program.Manager.Proximity;
+        public int Audio = Program.Manager.Audio;
+
+
         public void OnGet()
         {
             var UserID = Program.Manager.UserID;
             var GhostID = Program.Manager.GhostID;
-          
+            
+            ReloadOptions();
         }
 
-        public void OnPostMiscOptions(int brightness, int contrast, bool ledToggle, int volume,
-                                    bool micToggle, bool proximityToggle, bool audioToggle) {
+        public void OnPostMiscOptions(int brightness, int contrast, int ledToggle, int volume,
+                                    int micToggle, int proximityToggle, int audioToggle) {
+            
 
+            // uses Gpio Pin 17
+            //Program.Connections.LedToggle(ledToggle);
+
+            // Adds all the options to DB
             Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
 
+            // Changes the camera Options on the PI
+            //Program.Connections.send_cmd(brightness, contrast);
+
+            
         }
 
 
-        public void ChangeBrightness()
+
+        public void ReloadOptions()
         {
-
+            OptionsID = Program.Manager.OptionsID;
+            Brightness = Program.Manager.Brightness;
+            Contrast = Program.Manager.Contrast;
+            Led = Program.Manager.Led;
+            Volume = Program.Manager.Volume;
+            Mic = Program.Manager.Microphone;
+            Prox = Program.Manager.Proximity;
+            Audio = Program.Manager.Audio;
         }
+
+
     }
 }

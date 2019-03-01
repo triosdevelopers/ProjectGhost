@@ -12,9 +12,17 @@ namespace ProjectGhost
         public int UserID { get; set; }
         public int GhostTypeID { get; set; }
         public int GhostID { get; set; }
-        public bool isAddUser { get; set; }
+        public int OptionsID = -1;
         public string cs = "Filename=Ghost.db";
 
+        public int Brightness;
+        public int Contrast;
+        public int Volume;
+        public int Led;
+        public int Microphone;
+        public int Proximity;
+        public int Audio;
+        
 
         public void CheckID(string email, string password)
         {
@@ -165,8 +173,16 @@ namespace ProjectGhost
             }
         }
 
-        public void AddOptions(int brit, int contr, int vol, bool led, bool mic, bool prox, bool audio)
+        public void AddOptions(int brit, int contr, int vol, int led, int mic, int prox, int audio)
         {
+            this.Brightness = brit;
+            this.Contrast = contr;
+            this.Volume = vol;
+            this.Led = led;
+            this.Microphone = mic;
+            this.Proximity = prox;
+            this.Audio = audio;
+
             using (SqliteConnection con = new SqliteConnection(cs))
             {
                 int NewOptionsID = 0;
@@ -187,6 +203,7 @@ namespace ProjectGhost
                     if (optionsID != null)
                     {
                         NewOptionsID = Convert.ToInt32(optionsID);
+                        this.OptionsID = NewOptionsID;
                     }
                 }
                 con.Close();

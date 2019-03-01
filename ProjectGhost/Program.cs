@@ -6,7 +6,7 @@ namespace ProjectGhost
 	public class Program
 	{
         public static Manager Manager = new Manager();
-
+        public static Connections Connections = new Connections();
 
         public static void Main(string[] args)
 		{
