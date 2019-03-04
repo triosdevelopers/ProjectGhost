@@ -9,6 +9,7 @@ namespace ProjectGhost
     public class Manager
     {
         public List<string> GhostNames = new List<string>();
+        public List<string> UserProtocols = new List<string>();
         public int UserID { get; set; }
         public int GhostTypeID { get; set; }
         public int GhostID { get; set; }
@@ -209,5 +210,47 @@ namespace ProjectGhost
                 con.Close();
             }
         }
+
+
+
+        public void ReturnLastOptions()
+        {
+            UserProtocols.Clear();
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                con.Open();
+               
+                string sql = "SELECT * FROM GhostProtocol WHERE GhostID ='" + GhostID + "' ORDER BY GhostProtocolsID desc LIMIT 1";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
+                {
+                    SqliteDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            UserProtocols.Add(Convert.ToString(reader.GetValue(i)));
+                        }
+                    }
+                    reader.Close();
+                }
+                con.Close();
+                UpdateUserProtocols();
+            }
+        }
+
+        public void UpdateUserProtocols()
+        {
+            this.OptionsID = Convert.ToInt32(UserProtocols[0]);
+            this.Brightness = Convert.ToInt32(UserProtocols[1]);
+            this.Contrast = Convert.ToInt32(UserProtocols[2]);
+            this.Volume = Convert.ToInt32(UserProtocols[4]);
+            this.Led = Convert.ToInt32(UserProtocols[5]);
+            this.Microphone = Convert.ToInt32(UserProtocols[6]);
+            this.Proximity = Convert.ToInt32(UserProtocols[7]);
+            this.Audio = Convert.ToInt32(UserProtocols[8]);
+            
+        }
     }
+
+
 }

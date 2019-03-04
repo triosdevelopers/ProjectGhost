@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace ProjectGhost.Pages
 {
@@ -24,7 +25,6 @@ namespace ProjectGhost.Pages
         {
             var UserID = Program.Manager.UserID;
             var GhostID = Program.Manager.GhostID;
-            
             ReloadOptions();
         }
 
@@ -41,13 +41,14 @@ namespace ProjectGhost.Pages
             // Changes the camera Options on the PI
             //Program.Connections.send_cmd(brightness, contrast);
 
-            
+            ReloadOptions();
         }
 
-
+        
 
         public void ReloadOptions()
         {
+            Program.Manager.ReturnLastOptions();
             OptionsID = Program.Manager.OptionsID;
             Brightness = Program.Manager.Brightness;
             Contrast = Program.Manager.Contrast;

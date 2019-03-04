@@ -220,7 +220,7 @@
     <div class="container"></div>
 </div>
 
-@{var contrastVar = (Model.OptionsID == -1 ? 50 : Model.Contrast);}
+@{var contrastVar = (Model.OptionsID == -1 ? 0 : Model.Contrast);}
 @{var brightnessVar = (Model.OptionsID == -1 ? 50 : Model.Brightness);}
 
 @{var AudioVar = (Model.OptionsID == -1 ? 0 : Model.Audio);}
@@ -240,7 +240,7 @@
             <div class="container">
                 <h3>Contrast:&nbsp;<span id="conVal">@contrastVar</span></h3>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="@contrastVar"
+                    <input type="range" min="-100" max="100" value="@contrastVar"
                            class="slider" name="contrast" id="ContrastSlider"
                            onchange="getValue(this, conVal)" />
                 </div>
@@ -249,7 +249,7 @@
             <div class="container">
                 <h3>Brightness:&nbsp;<span id="brVal">@brightnessVar</span></h3>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="@brightnessVar" class="slider"
+                    <input type="range" min="0" max="100" value="@brightnessVar" class="slider"
                            name="brightness" id="BrightnessSlider" onchange="getValue(this, brVal)">
                 </div>
             </div>
