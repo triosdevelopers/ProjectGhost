@@ -6,7 +6,9 @@
 
 
 <header>
-	<img id="headerLogo" src="~/images/ghostLogo.png" alt="Logo?" />
+	<a href="./index" title="home">
+		<img id="headerLogo" src="~/images/ghostLogo.png" alt="Logo?" />
+	</a>
 	<h2 id="headerTitle">Ghost Protocals</h2>
 </header>
 <nav class="tab">
@@ -34,164 +36,258 @@
 		</div>
 	</div>
 
-	<div class="range-day" id="range-day-1" data-day="1">
-		<input type="checkbox" name="day-1" id="day-1" value="1" class="range-checkbox" checked>
-		<label for="day-1" class="range-label">Monday:</label>
-		<div id="range-slider-1" class="range-slider"></div>
-		<span id="range-time-1" class="range-time"></span>
 
-		<div class="RecordLength" id="RecordLength1">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value1a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value1a)">
-				<p>Delay Between Recording: <span id="value1b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value1b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value1c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value1c)">
-			</form>
+	<form id="ScheduleForm" method="post" asp-page-handler="Schedule">
+		<fieldset>
+			<div class="range-day" id="range-day-1" data-day="1" style="position:relative;">
+				<input type="checkbox" name="mondayCheck" id="day-1" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="mondayCheck" value="false" />
+				<label for="day-1" class="range-label">Monday:</label>
+				<div id="range-slider-1" class="range-slider"></div>
+				<span id="range-time-1" class="range-time"></span>
+
+				<input id="OnTime1" name="onTime1" type="hidden"/>
+				<input id="OffTime1" name="offTime1" type="hidden"/>
+
+				<div class="RecordLength" id="RecordLength1">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid1" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 85px;">Length: <span id="value1a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength1" onchange="getValue(this, value1a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 110px;">Delay: <span id="value1b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay1" onchange="getValue(this, value1b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid1" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 165px;">Delay: <span id="value1c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay1" onchange="getValue(this, value1c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="range-day" id="range-day-2" data-day="2">
+				<input type="checkbox" name="teusdayCheck" id="day-2" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="teusdayCheck" value="false" />
+				<label for="day-2" class="range-label">Tuesday:</label>
+				<div id="range-slider-2" class="range-slider"></div>
+				<span id="range-time-2" class="range-time"></span>
+
+				<input id="OnTime2" name="onTime2" type="hidden" />
+				<input id="OffTime2" name="offTime2" type="hidden" />
+
+				<div class="RecordLength" id="RecordLength2">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid2" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 670px;">Length: <span id="value2a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength2" onchange="getValue(this, value2a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 695px;">Delay: <span id="value2b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay2" onchange="getValue(this, value2b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid2" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 753px;">Delay: <span id="value2c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay2" onchange="getValue(this, value2c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="range-day" id="range-day-3" data-day="3">
+				<input type="checkbox" name="wednesdayCheck" id="day-3" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="wednesdayCheck" value="false" />
+				<label for="day-3" class="range-label">Wednesday:</label>
+				<div id="range-slider-3" class="range-slider"></div>
+				<span id="range-time-3" class="range-time"></span>
+
+				<input id="OnTime3" name="onTime3" type="hidden" />
+				<input id="OffTime3" name="offTime3" type="hidden" />
+
+				<div class="RecordLength" id="RecordLength3">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid3" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 884px;">Length: <span id="value3a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength3" onchange="getValue(this, value3a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 908px;">Delay: <span id="value3b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay3" onchange="getValue(this, value3b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid3" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 965px;">Delay: <span id="value3c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay3" onchange="getValue(this, value3c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="range-day" id="range-day-4" data-day="4">
+				<input type="checkbox" name="thursdayCheck" id="day-4" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="thursdayCheck" value="false" />
+				<label for="day-4" class="range-label">Thursday‎:</label>
+				<div id="range-slider-4" class="range-slider"></div>
+				<span id="range-time-4" class="range-time"></span>
+
+				<input id="OnTime4" name="onTime4" type="hidden" />
+				<input id="OffTime4" name="offTime4" type="hidden" />
+
+				<div class="RecordLength" id="RecordLength4">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid4" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 1095px;">Length: <span id="value4a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength4" onchange="getValue(this, value4a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 1119px;">Delay: <span id="value4b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay4" onchange="getValue(this, value4b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid4" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 1175px;">Delay: <span id="value4c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay4" onchange="getValue(this, value4c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="range-day" id="range-day-5" data-day="5">
+				<input type="checkbox" name="fridayCheck" id="day-5" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="fridayCheck" value="false" />
+				<label for="day-5" class="range-label">Friday:</label>
+				<div id="range-slider-5" class="range-slider"></div>
+				<span id="range-time-5" class="range-time"></span>
+
+				<input id="OnTime5" name="onTime5" type="hidden" />
+				<input id="OffTime5" name="offTime5" type="hidden" />
+
+				<div class="RecordLength" id="RecordLength5">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid5" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 1305px;">Length: <span id="value5a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength5" onchange="getValue(this, value5a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 1330px;">Delay: <span id="value5b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay5" onchange="getValue(this, value5b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid5" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 1390px;">Delay: <span id="value5c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay5" onchange="getValue(this, value5c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="range-day" id="range-day-6" data-day="6">
+				<input type="checkbox" name="saturdayCheck" id="day-6" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="saturdayCheck" value="false" />
+				<label for="day-6" class="range-label">Saturday:</label>
+				<div id="range-slider-6" class="range-slider"></div>
+				<span id="range-time-6" class="range-time"></span>
+
+				<input id="OnTime6" name="onTime6" type="hidden" />
+				<input id="OffTime6" name="offTime6" type="hidden" />
+
+				<div class="RecordLength" id="RecordLength6">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid6" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 1518px;">Length: <span id="value6a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength6" onchange="getValue(this, value6a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 1545px;">Delay: <span id="value6b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay6" onchange="getValue(this, value6b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid6" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 1600px;">Delay: <span id="value6c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay6" onchange="getValue(this, value6c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="range-day" id="range-day-7" data-day="7">
+				<input type="checkbox" name="sundayCheck" id="day-7" value="true" class="range-checkbox" checked>
+				<input type="hidden" name="sundayCheck" value="false" />
+				<label for="day-7" class="range-label">Sunday:</label>
+				<div id="range-slider-7" class="range-slider"></div>
+				<span id="range-time-7" class="range-time"></span>
+
+				<input id="OnTime7" name="onTime7" type="hidden" />
+				<input id="OffTime7" name="offTime7" type="hidden" />
+
+				<div class="RecordLength" id="RecordLength7">
+					<div style="float:left;">
+						Record Video: <input type="radio" name="picVid7" value="0" />
+					</div>
+					<div class="recordLengthDiv">
+						<p class="recordLengthP" style="top: 1729px;">Length: <span id="value7a">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vLength7" onchange="getValue(this, value7a)">
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom: 10px;">
+						<p class="recordLengthP" style="top: 1755px;">Delay: <span id="value7b">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="vDelay7" onchange="getValue(this, value7b)">
+					</div>
+					<div style="float:left;">
+						Take Snapshot: <input type="radio" name="picVid7" value="1" />
+					</div>
+					<div class="recordLengthDiv" style="margin-bottom:-50px;">
+						<p class="recordLengthP" style="top: 1813px;">Delay: <span id="value7c">1</span></p>
+						<input type="range" min="1" max="60" value="1" step="1" class="RecordLengthSlider" name="sDelay7" onchange="getValue(this, value7c)">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<button>Update Schedule</button>
+
+		<br style="clear:both">
+
+		<div id="snapVid">
+			<h1 id="snapVidH1">view/delete recordings/imgs</h1>
+			<h3>Snapshots:</h3>
+			<img src="http://placehold.it/200x200" alt="Alternate Text" />
+			<h3>Videos:</h3>
+			<img src="http://placehold.it/350x200" />
 		</div>
-
-	</div>
-
-
-	<div class="range-day" id="range-day-2" data-day="2">
-		<input type="checkbox" name="day-2" id="day-2" value="1" class="range-checkbox" checked>
-		<label for="day-2" class="range-label">Tuesday:</label>
-		<div id="range-slider-2" class="range-slider"></div>
-		<span id="range-time-2" class="range-time"></span>
-
-		<div class="RecordLength" id="RecordLength2">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value2a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value2a)">
-				<p>Delay Between Recording: <span id="value2b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value2b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value2c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value2c)">
-			</form>
-		</div>
-
-	</div>
-
-	<div class="range-day" id="range-day-3" data-day="3">
-		<input type="checkbox" name="day-3" id="day-3" value="1" class="range-checkbox" checked>
-		<label for="day-3" class="range-label">Wednesday:</label>
-		<div id="range-slider-3" class="range-slider"></div>
-		<span id="range-time-3" class="range-time"></span>
-
-		<div class="RecordLength" id="RecordLength3">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value3a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value3a)">
-				<p>Delay Between Recording: <span id="value3b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value3b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value3c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value3c)">
-			</form>
-		</div>
-
-	</div>
-
-	<div class="range-day" id="range-day-4" data-day="4">
-		<input type="checkbox" name="day-4" id="day-4" value="1" class="range-checkbox" checked>
-		<label for="day-4" class="range-label">Thursday‎:</label>
-		<div id="range-slider-4" class="range-slider"></div>
-		<span id="range-time-4" class="range-time"></span>
-
-		<div class="RecordLength" id="RecordLength4">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value4a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value4a)">
-				<p>Delay Between Recording: <span id="value4b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value4b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value4c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value4c)">
-			</form>
-		</div>
-
-	</div>
-
-	<div class="range-day" id="range-day-5" data-day="5">
-		<input type="checkbox" name="day-5" id="day-5" value="1" class="range-checkbox" checked>
-		<label for="day-5" class="range-label">Friday:</label>
-		<div id="range-slider-5" class="range-slider"></div>
-		<span id="range-time-5" class="range-time"></span>
-
-		<div class="RecordLength" id="RecordLength5">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value5a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value5a)">
-				<p>Delay Between Recording: <span id="value5b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value5b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value5c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value5c)">
-			</form>
-		</div>
-
-	</div>
-
-	<div class="range-day" id="range-day-6" data-day="6">
-		<input type="checkbox" name="day-6" id="day-6" value="1" class="range-checkbox" checked>
-		<label for="day-6" class="range-label">Saturday:</label>
-		<div id="range-slider-6" class="range-slider"></div>
-		<span id="range-time-6" class="range-time"></span>
-
-		<div class="RecordLength" id="RecordLength6">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value6a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value6a)">
-				<p>Delay Between Recording: <span id="value6b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value6b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value6c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value6c)">
-			</form>
-		</div>
-
-	</div>
-
-	<div class="range-day" id="range-day-7" data-day="7">
-		<input type="checkbox" name="day-7" id="day-7" value="1" class="range-checkbox" checked>
-		<label for="day-7" class="range-label">Sunday:</label>
-		<div id="range-slider-7" class="range-slider"></div>
-		<span id="range-time-7" class="range-time"></span>
-
-		<div class="RecordLength" id="RecordLength7">
-			<form action="/" method="post">
-				Record Video: <input type="radio" name="picVid" />
-				<p>Length of Recording: <span id="value7a">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value7a)">
-				<p>Delay Between Recording: <span id="value7b">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value7b)">
-				Take Snapshot: <input type="radio" name="picVid" />
-				<p>Delay Between Snapshot: <span id="value7c">0</span></p>
-				<input type="range" min="0" max="60" value="1" step="5" class="RecordLengthSlider" onchange="getValue(this, value7c)">
-			</form>
-		</div>
-
-	</div>
-
-	<br style="clear:both">
-
-	<div id="snapVid">
-		<h1 id="snapVidH1">view/delete recordings/imgs</h1>
-		<h3>Snapshots:</h3>
-		<img src="http://placehold.it/200x200" alt="Alternate Text" />
-		<h3>Videos:</h3>
-		<img src="http://placehold.it/350x200" />
-	</div>
-
+	</form>
 </div>
 
 
@@ -199,49 +295,82 @@
 <!-- FOR MISC SETTINGS TAB -->
 <div id="miscOptions" class="options">
 	<form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
-		<h1>Audio Settings</h1>
-		<h3>Audio On/Off:</h3>
-		<div class="toggleContainer">
-			<input type="range" min="0" max="1" value="0" class="slider" name="audioToggle" id="AudioToggle">
-		</div>
-		<h3>Volumn:</h3>
-		<div class="slidecontainer">
-			<input type="range" min="1" max="100" value="50" class="slider" name="volume" id="VolumeControl">
-		</div>
+		<div class="optionsPane">
+			<h1>Camera Settings</h1>
 
-		<h1 class="marginTop">Camera Settings</h1>
-		<h3>Contrast:</h3>
-		<div class="slidecontainer">
-			<input type="range" min="1" max="100" value="50" class="slider" name="contrast" id="ContrastSlider">
-		</div>
-		<h3>Brightness:</h3>
-		<div class="slidecontainer">
-			<input type="range" min="1" max="100" value="50" class="slider" name="brightness" id="BrightnessSlider">
-		</div>
+			<div class="container">
+				<h3>Contrast:&nbsp;<span id="conVal">50</span></h3>
+				<div class="slidecontainer">
+					<input type="range" min="-100" max="100" value="0"
+						   class="slider" name="contrast" id="ContrastSlider" onchange="getValue(this, conVal)">
 
-		<h1 class="marginTop">LED Options</h1>
-		<h3>LED On/Off:</h3>
-		<div class="toggleContainer">
-			<input type="range" min="0" max="1" value="0" class="slider" name="ledToggle" id="LedToggle">
-		</div>
+				</div>
+			</div>
 
-		<h1 class="marginTop">Mic Settings</h1>
-		<h3>Mic On/Off:</h3>
-		<div class="toggleContainer">
-			<input type="range" min="0" max="1" value="0" class="slider" name="micToggle" id="MicToggle">
-		</div>
+			<div class="container">
+				<h3>Brightness:&nbsp;<span id="brVal">50</span></h3>
+				<div class="slidecontainer">
+					<input type="range" min="1" max="100" value="50" class="slider"
+						   name="brightness" id="BrightnessSlider" onchange="getValue(this, brVal)">
+				</div>
+			</div>
 
-		<h1 class="marginTop">Proximity Settings</h1>
-		<h3>Proximity On/Off:</h3>
-		<div class="toggleContainer">
-			<input type="range" min="0" max="1" value="0" class="slider" name="proximityToggle" id="ProximityToggle">
+			<h1 class="marginTop">Audio Settings</h1>
+			<div class="container">
+				<h3>Audio:&nbsp; <span id="audVal">Off</span></h3>
+				<div class="toggleContainer">
+					<input type="range" min="0" max="1" value="0"
+						   class="slider" name="audioToggle" id="AudioToggle" onchange="toggleValue(this, audVal)">
+				</div>
+
+			</div>
+			<div class="container">
+				<h3>Volumn:&nbsp;<span id="volVal">50</span></h3>
+				<div class="slidecontainer">
+					<input type="range" min="1" max="100" value="50"
+						   class="slider" name="volume" id="VolumeControl" onchange="getValue(this, volVal)">
+				</div>
+
+			</div>
+			<h1 class="marginTop">LED Options</h1>
+			<div class="container">
+				<h3>LED:&nbsp; <span id="ledVal">Off</span></h3>
+				<div class="toggleContainer">
+					<input type="range" min="0" max="1" value="0"
+						   class="slider" name="ledToggle" id="LedToggle" onchange="toggleValue(this, ledVal)">
+				</div>
+
+			</div>
+			<h1 class="marginTop">Mic Settings</h1>
+			<div class="container">
+				<h3>Mic:&nbsp; <span id="micVal">Off</span></h3>
+				<div class="toggleContainer">
+					<input type="range" min="0" max="1" value="0"
+						   class="slider" name="micToggle" id="MicToggle" onchange="toggleValue(this, micVal)">
+				</div>
+
+			</div>
+			<h1 class="marginTop">Proximity Settings</h1>
+			<div class="container">
+				<h3>Proximity:&nbsp; <span id="proxVal">Off</span></h3>
+				<div class="toggleContainer">
+					<input type="range" min="0" max="1" value="0"
+						   class="slider" name="proximityToggle" id="ProximityToggle" onchange="toggleValue(this, proxVal)">
+				</div>
+			</div>
+			<div class="container"></div>
 		</div>
 
 
 
 		<div id="liveFeedDiv">
 			<div id="liveFeed">
-				<img id="mjpeg_dest" src="http://10.2.114.26:8080/cam.jpg" alt="Live feed" style="width:100%; " />
+				<img id="mjpeg_dest" src="http://10.2.114.26:8080/cam.jpg" alt="Live feed" style="width:100%;" />
+			</div>
+			<div style="text-align:center;">
+				<button id="btnSnapshot">Take Snapshot</button>
+				<button id="btnStartRecording">Start Recording</button>
+				<button id="btnStopRecording">Stop Recording</button>
 			</div>
 			<div>
 				<button id="btnApplyChanges">Sumbit Changes</button>
@@ -252,8 +381,17 @@
 </div>
 
 
-
-	<!-- FOR CONTACT TAB -->
-<div id="contactUs" class="options">	
-	<A style="align-content:center;" HREF="mailto:protoGhost123@gmail.com?body= please be sure to include your: Username(email), Phone Number, Serial Number">Click Here To Email Us</A>	
+<!-- FOR CONTACT TAB -->
+<div id="contactUs" class="options">
+	<p style="color:#fff; margin-bottom:5px;">Contact us at:</p>
+	<A style="align-content:center;" HREF="mailto:protoGhost123@gmail.com?body= please be sure to include your: Username(email), Phone Number, Serial Number"><img src="~/images/email-128-black.png" style="background:#fff; margin-bottom:25px;" /></A>
+	<div>
+		<p style="color:#fff; margin-bottom:5px;">or visit us on:</p>
+		<a href="http://www.facebook.com"><img src="~/images/facebook-128-black.png" style="background:#fff;" /></a>
+		<a href="http://www.instagram.com"><img src="~/images/instagram-128-black.png" style="background:#fff;" /></a>
+		<a href="http://www.myspace.com"><img src="~/images/myspace-128-black.png" style="background:#fff;" /></a>
+		<a href="http://www.twitter.com"><img src="~/images/twitter-128-black.png" style="background:#fff;" /></a>
+		<a href="http://www.github.com"><img src="~/images/github-128-black.png" style="background:#fff;" /></a>
+	</div>
 </div>
+
