@@ -219,6 +219,7 @@ footer {
 #liveFeed {
     background: #fff;
     margin: 25px;
+    height: 300px;
     border: solid 3px #fff;
 }
 
