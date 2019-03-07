@@ -1,7 +1,7 @@
 ﻿@page
 @model ProjectGhost.Pages.AdminModel
 @{
-	ViewData["Title"] = "Admin";
+    ViewData["Title"] = "Admin";
 }
 
 
@@ -12,29 +12,29 @@
 	<h2 id="headerTitle">Ghost Protocals</h2>
 </header>
 <nav class="tab">
-	<button id="cameraScheduleBtn" class="tabOptions" onclick="openOptions(event, 'cameraSchedule')">Camera Schedule</button>
-	<button id="miscOptionsBtn" class="tabOptions" onclick="openOptions(event, 'miscOptions')">Misc Options</button>
-	<button id="contactUsBtn" class="tabOptions" onclick="openOptions(event, 'contactUs')">Contact Us</button>
+    <button id="cameraScheduleBtn" class="tabOptions" onclick="openOptions(event, 'cameraSchedule')" style="background: #000; color: #fff;">Camera Schedule</button>
+    <button id="miscOptionsBtn" class="tabOptions" onclick="openOptions(event, 'miscOptions')">Settings</button>
+    <button id="contactUsBtn" class="tabOptions" onclick="openOptions(event, 'contactUs')">Contact Us</button>
 </nav>
 
 <!-- FOR CAMERA SCHEDULE TAB -->
 <div id="cameraSchedule" class="options">
-	<h1 id="scheduleH1">Schedule</h1>
-	<br>
+    <h1 id="scheduleH1">Schedule</h1>
+    <br>
 
-	<div class="range-head">
-		<div class="range-values">
-			<span class="r-0">0:00</span>
-			<span class="r-3">3:00</span>
-			<span class="r-6">6:00</span>
-			<span class="r-9">9:00</span>
-			<span class="r-12">12:00</span>
-			<span class="r-15">15:00</span>
-			<span class="r-18">18:00</span>
-			<span class="r-21">21:00</span>
-			<span class="r-24">24:00</span>
-		</div>
-	</div>
+    <div class="range-head">
+        <div class="range-values">
+            <span class="r-0">0:00</span>
+            <span class="r-3">3:00</span>
+            <span class="r-6">6:00</span>
+            <span class="r-9">9:00</span>
+            <span class="r-12">12:00</span>
+            <span class="r-15">15:00</span>
+            <span class="r-18">18:00</span>
+            <span class="r-21">21:00</span>
+            <span class="r-24">24:00</span>
+        </div>
+    </div>
 
 
 	<form id="ScheduleForm" method="post" asp-page-handler="Schedule">
@@ -280,104 +280,113 @@
 
 		<br style="clear:both">
 
-		<div id="snapVid">
-			<h1 id="snapVidH1">view/delete recordings/imgs</h1>
-			<h3>Snapshots:</h3>
-			<img src="http://placehold.it/200x200" alt="Alternate Text" />
-			<h3>Videos:</h3>
-			<img src="http://placehold.it/350x200" />
-		</div>
-	</form>
+    <div id="snapVid">
+        <h1 id="snapVidH1">view/delete recordings/imgs</h1>
+        <h3>Snapshots:</h3>
+        <img src="http://placehold.it/200x200" alt="Alternate Text" />
+        <h3>Videos:</h3>
+        <img src="http://placehold.it/350x200" />
+    </div>
+    <div class="container"></div>
 </div>
 
+@{var contrastVar = (Model.OptionsID == -1 ? 0 : Model.Contrast);}
+@{var brightnessVar = (Model.OptionsID == -1 ? 50 : Model.Brightness);}
+
+@{var AudioVar = (Model.OptionsID == -1 ? 0 : Model.Audio);}
+@{var VolumeVar = (Model.OptionsID == -1 ? 50 : Model.Volume);}
+
+@{var LedVar = (Model.OptionsID == -1 ? 0 : Model.Audio);}
+@{var micVar = (Model.OptionsID == -1 ? 0 : Model.Volume);}
+
+@{var proxVar = (Model.OptionsID == -1 ? 0 : Model.Audio);}
 
 
 <!-- FOR MISC SETTINGS TAB -->
 <div id="miscOptions" class="options">
-	<form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
-		<div class="optionsPane">
-			<h1>Camera Settings</h1>
+    <form id="miscOptionsForm" method="post" asp-page-handler="MiscOptions">
+        <div class="optionsPane">
+            <h1>Camera Settings</h1>
+            <div class="container">
+                <h3>Contrast:&nbsp;<span id="conVal">@contrastVar</span></h3>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="@contrastVar"
+                           class="slider" name="contrast" id="ContrastSlider"
+                           onchange="getValue(this, conVal)" />
+                </div>
+            </div>
 
-			<div class="container">
-				<h3>Contrast:&nbsp;<span id="conVal">50</span></h3>
-				<div class="slidecontainer">
-					<input type="range" min="-100" max="100" value="0"
-						   class="slider" name="contrast" id="ContrastSlider" onchange="getValue(this, conVal)">
+            <div class="container">
+                <h3>Brightness:&nbsp;<span id="brVal">@brightnessVar</span></h3>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="@brightnessVar" class="slider"
+                           name="brightness" id="BrightnessSlider" onchange="getValue(this, brVal)">
+                </div>
+            </div>
+            <h1 class="marginTop">Audio Settings</h1>
+            <div class="container">
+                <h3>Audio:&nbsp; <span id="audVal">@(AudioVar == 0 ? "Off" : "On")</span></h3>
+                <div class="toggleContainer">
+                    <input type="range" min="0" max="1" value="@AudioVar"
+                           class="slider" name="audioToggle" id="AudioToggle" onchange="toggleValue(this, audVal)">
+                </div>
 
-				</div>
-			</div>
+            </div>
+            <div class="container">
+                <h3>Volumn:&nbsp;<span id="volVal">@VolumeVar</span></h3>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="@VolumeVar"
+                           class="slider" name="volume" id="VolumeControl" onchange="getValue(this, volVal)">
+                </div>
 
-			<div class="container">
-				<h3>Brightness:&nbsp;<span id="brVal">50</span></h3>
-				<div class="slidecontainer">
-					<input type="range" min="1" max="100" value="50" class="slider"
-						   name="brightness" id="BrightnessSlider" onchange="getValue(this, brVal)">
-				</div>
-			</div>
+            </div>
+            <h1 class="marginTop">LED Options</h1>
+            <div class="container">
+                <h3>LED:&nbsp; <span id="ledVal">@(LedVar == 0 ? "Off" : "On")</span></h3>
+                <div class="toggleContainer">
+                    <input type="range" min="0" max="1" value="@LedVar"
+                           class="slider" name="ledToggle" id="LedToggle" onchange="toggleValue(this, ledVal)">
+                </div>
 
-			<h1 class="marginTop">Audio Settings</h1>
-			<div class="container">
-				<h3>Audio:&nbsp; <span id="audVal">Off</span></h3>
-				<div class="toggleContainer">
-					<input type="range" min="0" max="1" value="0"
-						   class="slider" name="audioToggle" id="AudioToggle" onchange="toggleValue(this, audVal)">
-				</div>
+            </div>
+            <h1 class="marginTop">Mic Settings</h1>
+            <div class="container">
+                <h3>Mic:&nbsp; <span id="micVal">@(micVar == 0 ? "Off" : "On")</span></h3>
+                <div class="toggleContainer">
+                    <input type="range" min="0" max="1" value="@micVar"
+                           class="slider" name="micToggle" id="MicToggle" onchange="toggleValue(this, micVal)">
+                </div>
 
-			</div>
-			<div class="container">
-				<h3>Volumn:&nbsp;<span id="volVal">50</span></h3>
-				<div class="slidecontainer">
-					<input type="range" min="1" max="100" value="50"
-						   class="slider" name="volume" id="VolumeControl" onchange="getValue(this, volVal)">
-				</div>
-
-			</div>
-			<h1 class="marginTop">LED Options</h1>
-			<div class="container">
-				<h3>LED:&nbsp; <span id="ledVal">Off</span></h3>
-				<div class="toggleContainer">
-					<input type="range" min="0" max="1" value="0"
-						   class="slider" name="ledToggle" id="LedToggle" onchange="toggleValue(this, ledVal)">
-				</div>
-
-			</div>
-			<h1 class="marginTop">Mic Settings</h1>
-			<div class="container">
-				<h3>Mic:&nbsp; <span id="micVal">Off</span></h3>
-				<div class="toggleContainer">
-					<input type="range" min="0" max="1" value="0"
-						   class="slider" name="micToggle" id="MicToggle" onchange="toggleValue(this, micVal)">
-				</div>
-
-			</div>
-			<h1 class="marginTop">Proximity Settings</h1>
-			<div class="container">
-				<h3>Proximity:&nbsp; <span id="proxVal">Off</span></h3>
-				<div class="toggleContainer">
-					<input type="range" min="0" max="1" value="0"
-						   class="slider" name="proximityToggle" id="ProximityToggle" onchange="toggleValue(this, proxVal)">
-				</div>
-			</div>
-			<div class="container"></div>
-		</div>
+            </div>
+            <h1 class="marginTop">Proximity Settings</h1>
+            <div class="container">
+                <h3>Proximity:&nbsp; <span id="proxVal">@(proxVar == 0?"Off":"On")</span></h3>
+                <div class="toggleContainer">
+                    <input type="range" min="0" max="1" value="@proxVar"
+                           class="slider" name="proximityToggle" id="ProximityToggle" onchange="toggleValue(this, proxVal)">
+                </div>
+            </div>
+            <div class="container"></div>
+        </div>
 
 
+        <!---->
+        <div id="liveFeedDiv">
+            <div id="liveFeed">
+                <img id="mjpeg_dest" src="http://10.2.114.26:8080/cam.jpg"
+                     alt="Live feed" style="width:100%;" />
+            </div>
+            <div style="text-align:center;">
+                <button id="btnSnapshot">Take Snapshot</button>
+                <button id="btnStartRecording">Start Recording</button>
+                <button id="btnStopRecording">Stop Recording</button>
+            </div>
+            <div>
+                <button id="btnApplyChanges">Sumbit Changes</button>
+            </div>
+        </div>
 
-		<div id="liveFeedDiv">
-			<div id="liveFeed">
-				<img id="mjpeg_dest" src="http://10.2.114.26:8080/cam.jpg" alt="Live feed" style="width:100%;" />
-			</div>
-			<div style="text-align:center;">
-				<button id="btnSnapshot">Take Snapshot</button>
-				<button id="btnStartRecording">Start Recording</button>
-				<button id="btnStopRecording">Stop Recording</button>
-			</div>
-			<div>
-				<button id="btnApplyChanges">Sumbit Changes</button>
-			</div>
-		</div>
-
-	</form>
+    </form>
 </div>
 
 

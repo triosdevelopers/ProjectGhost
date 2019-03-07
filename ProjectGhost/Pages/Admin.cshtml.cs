@@ -1,11 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ProjectGhost.Pages
 {
@@ -16,7 +10,15 @@ namespace ProjectGhost.Pages
             "7:00", "7:15", "7:30", "7:45", "8:00", "8:15", "8:30", "8:45", "9:00", "9:15", "9:30", "9:45", "10:00", "10:15", "10:30",
             "10:45", "11:00", "11:15", "11:30", "11:45"};
 
-        
+        public int OptionsID;
+        public int Brightness = Program.Manager.Brightness;
+        public int Contrast = Program.Manager.Contrast;
+        public int Led = Program.Manager.Led;
+        public int Volume = Program.Manager.Volume;
+        public int Mic = Program.Manager.Microphone;
+        public int Prox = Program.Manager.Proximity;
+        public int Audio = Program.Manager.Audio;
+
 
         public void OnGet()
         {
@@ -77,7 +79,17 @@ namespace ProjectGhost.Pages
 
         public void ChangeBrightness()
         {
-
+            Program.Manager.ReturnLastOptions();
+            OptionsID = Program.Manager.OptionsID;
+            Brightness = Program.Manager.Brightness;
+            Contrast = Program.Manager.Contrast;
+            Led = Program.Manager.Led;
+            Volume = Program.Manager.Volume;
+            Mic = Program.Manager.Microphone;
+            Prox = Program.Manager.Proximity;
+            Audio = Program.Manager.Audio;
         }
+
+
     }
 }

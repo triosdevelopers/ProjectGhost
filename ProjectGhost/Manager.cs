@@ -9,12 +9,21 @@ namespace ProjectGhost
     public class Manager
     {
         public List<string> GhostNames = new List<string>();
+        public List<string> UserProtocols = new List<string>();
         public int UserID { get; set; }
         public int GhostTypeID { get; set; }
         public int GhostID { get; set; }
-        public bool isAddUser { get; set; }
+        public int OptionsID = -1;
         public string cs = "Filename=Ghost.db";
 
+        public int Brightness;
+        public int Contrast;
+        public int Volume;
+        public int Led;
+        public int Microphone;
+        public int Proximity;
+        public int Audio;
+        
 
         public void CheckID(string email, string password)
         {
@@ -165,8 +174,16 @@ namespace ProjectGhost
             }
         }
 
-        public void AddOptions(int brit, int contr, int vol, bool led, bool mic, bool prox, bool audio)
+        public void AddOptions(int brit, int contr, int vol, int led, int mic, int prox, int audio)
         {
+            this.Brightness = brit;
+            this.Contrast = contr;
+            this.Volume = vol;
+            this.Led = led;
+            this.Microphone = mic;
+            this.Proximity = prox;
+            this.Audio = audio;
+
             using (SqliteConnection con = new SqliteConnection(cs))
             {
                 int NewOptionsID = 0;
@@ -187,10 +204,51 @@ namespace ProjectGhost
                     if (optionsID != null)
                     {
                         NewOptionsID = Convert.ToInt32(optionsID);
+                        this.OptionsID = NewOptionsID;
                     }
                 }
                 con.Close();
             }
+        }
+
+
+
+        public void ReturnLastOptions()
+        {
+            UserProtocols.Clear();
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                con.Open();
+               
+                string sql = "SELECT * FROM GhostProtocol WHERE GhostID ='" + GhostID + "' ORDER BY GhostProtocolsID desc LIMIT 1";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
+                {
+                    SqliteDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            UserProtocols.Add(Convert.ToString(reader.GetValue(i)));
+                        }
+                    }
+                    reader.Close();
+                }
+                con.Close();
+                UpdateUserProtocols();
+            }
+        }
+
+        public void UpdateUserProtocols()
+        {
+            this.OptionsID = Convert.ToInt32(UserProtocols[0]);
+            this.Brightness = Convert.ToInt32(UserProtocols[1]);
+            this.Contrast = Convert.ToInt32(UserProtocols[2]);
+            this.Volume = Convert.ToInt32(UserProtocols[4]);
+            this.Led = Convert.ToInt32(UserProtocols[5]);
+            this.Microphone = Convert.ToInt32(UserProtocols[6]);
+            this.Proximity = Convert.ToInt32(UserProtocols[7]);
+            this.Audio = Convert.ToInt32(UserProtocols[8]);
+            
         }
 
         // ANDREWS CAMERA SCHEDULE QUERY THING //
@@ -222,4 +280,6 @@ namespace ProjectGhost
             }
         }
     }
+
+
 }

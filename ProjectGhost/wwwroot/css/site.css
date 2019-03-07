@@ -1,30 +1,35 @@
 
 h1 {
-	font-weight: 600;
+    font-weight: 600;
 }
+
 .marginTop {
 	margin-top: 25px;
 }
 
 body {
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
 }
+
 nav {
-	background: #000;
+    background: #000;
     height: 50px;
     justify-content: center;
 }
-    nav span{
+
+    nav span {
         font-size: 1.5em;
         font-weight: 500;
         margin-left: 80px;
     }
-    nav form{
+
+    nav form {
         float: right;
         margin-right: 40px;
     }
+
         nav form > input {
             padding: 4px;
             margin-top: 4px;
@@ -35,15 +40,17 @@ nav {
             font-family: 'Roboto', sans-serif;
             background: #b3e6ff;
         }
-        nav form > input[type="submit"] {
-            padding: 4px;
-            border: 1px solid #000;
-            border-radius: 4px;
-            font-size: 1em;
-            font-weight: 800;
-            font-family: 'Roboto', sans-serif;
-            background: #fff;
-        }
+
+            nav form > input[type="submit"] {
+                padding: 4px;
+                border: 1px solid #000;
+                border-radius: 4px;
+                font-size: 1em;
+                font-weight: 800;
+                font-family: 'Roboto', sans-serif;
+                background: #fff;
+            }
+
         nav form > a {
             padding: 4px;
             border: 1px solid #000;
@@ -54,40 +61,46 @@ nav {
             font-family: 'Roboto', sans-serif;
             background: #fff;
         }
+
 #ghostLogo {
     float: left;
     margin-left: 20px;
     height: 45px;
     width: 45px;
 }
+
 header {
-	padding: 10px;
-	height: 200px;
-	width: 100%;
-	background: url(../images/starBkg.jpg);
-	border: 5px solid #000;
-	text-align: center;
-	font-size: 2em;
+    padding: 10px;
+    height: 200px;
+    width: 100%;
+    background: url(../images/starBkg.jpg);
+    border: 5px solid #000;
+    text-align: center;
+    font-size: 2em;
 }
+
 #headerLogo {
-	display: inline-block;
-	margin: 10px;
-	height: 150px;
-	width: 150px;
+    display: inline-block;
+    margin: 10px;
+    height: 150px;
+    width: 150px;
 }
+
 #headerTitle {
-	display: inline-block;
-	margin: 10px;
-	color: #950606;
-	text-shadow: 1px 1px #fff;
-	font-size: 50px;
+    display: inline-block;
+    margin: 10px;
+    color: #950606;
+    text-shadow: 1px 1px #fff;
+    font-size: 50px;
 }
+
 #cameraScheduleBtn, #miscOptionsBtn, #contactUsBtn {
-	height: 45px;
-	width: 33%;
-	margin-top: 1px;
-	margin-left: 1px;
+    height: 45px;
+    width: 33%;
+    margin-top: 1px;
+    margin-left: 1px;
 }
+
 footer {
 	background: #000;
 	text-align: center;
@@ -97,81 +110,95 @@ footer {
 	height: 40px;
 	z-index: 100;
 }
+
 #scheduleH1 {
-	margin-right: 25%;
+    margin-right: 25%;
 }
+
 #snapVid {
-	text-align: left;
+    text-align: left;
 }
+
 #snapVidH1 {
-	position: relative;
-	left: -12%;
+    position: relative;
+    left: -12%;
 }
+
 #miscOptions {
-	display: none;
-	margin-left: 25px;
+    display: none;
+
 }
+
 #contactUs {
 	display: none;
 	text-align: center;
 	height: 500px;
 }
+
 #cameraSchedule {
 	text-align: center;
 	margin-left: 10%;
 	color: #ccc;
 	margin-top: 10px;
 }
+
 .stuff {
 	background: #000;
 }
 /*****************	CREATE ACCOUNT PAGE ******************/
 .CreateAccountFields {
-	opacity: 0.75;
-	position: absolute;
-	width: 50%;
-	align-content: center;
-	text-align: center;
-	left: 25%;
-	top: 25%;
-	border: 3px solid #000;
-	border-radius: 25px;
-	padding: 10px;
-	background: #000;
+    opacity: 0.75;
+    position: absolute;
+    width: 50%;
+    align-content: center;
+    text-align: center;
+    left: 25%;
+    top: 25%;
+    border: 3px solid #000;
+    border-radius: 25px;
+    padding: 10px;
+    background: #000;
 }
-.UserInfo{
+
+.UserInfo {
     margin: 8px;
 }
+
     .UserInfo span {
-		color: #fff;
+        color: #fff;
         text-align: center;
         font-size: 2em;
         font-weight: 600;
         margin: 4px;
     }
+
     .UserInfo input {
-		color: #000;
+        color: #000;
         width: 50%;
         margin: 4px;
     }
+
 .GhostInfo {
-	margin: 5px;
-	margin: 4px;
+    margin: 5px;
+    margin: 4px;
 }
+
     .GhostInfo span {
-		color: #fff;
+        color: #fff;
         text-align: center;
         font-size: 2em;
         font-weight: 600;
         margin: 4px;
     }
+
     .GhostInfo input {
-		color: #000;
+        color: #000;
         width: 50%;
         margin: 4px;
     }
+
     .GhostInfo select {
-		color: #000;
+        color: #000;
         font-size: 1.2em;
         width: 50%;
         margin: 4px;
@@ -189,15 +216,17 @@ footer {
 	float: left;
 	float: right;
 }
+
 #liveFeed {
 	background: #fff;
 	margin: 25px;
 	height: 300px;
 }
+
 #btnApplyChanges {
-	position: absolute;
-	margin-left: 185px;
-	margin-top: 50px;
+    position: absolute;
+    margin-left: 185px;
+    margin-top: 50px;
 }
 /*****************	FOR THE LIVE FEED DIV ******************/
 /*****************	FOR THE RANGER SLIDERS ******************/
@@ -216,118 +245,111 @@ footer {
 
 /* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  width: 100%; /* Full-width */
-  height: 15px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  border-radius: 25px;
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+    -webkit-appearance: none; /* Override default CSS styles */
+    width: 100%; /* Full-width */
+    height: 15px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    border-radius: 25px;
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
+    /* Mouse-over effects */
+    .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  width: 15px; /* Set a specific slider handle width */
-  height: 15px; /* Slider handle height */
-  border-radius: 50px;
-  background: #4CAF50; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        width: 15px; /* Set a specific slider handle width */
+        height: 15px; /* Slider handle height */
+        border-radius: 50px;
+        background: #4CAF50;
+        cursor: pointer; /* Cursor on hover */
+    }
 
 /*****************	FOR THE RANGER SLIDERS ******************/
 
 /********************* FOR THE TABS *********************/
 /* Style the tab */
 .tab {
-	overflow: hidden;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
 }
 
-	/* Style the buttons that are used to open the tab content */
-	.tab button {
-		background-color: inherit;
-		float: left;
-		border: none;
-		outline: none;
-		cursor: pointer;
-		padding: 14px 16px;
-		transition: 0.3s;
-	}
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+    }
 
-		/* Change background color of buttons on hover */
-		.tab button:hover {
-			background-color: #ddd;
-		}
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
 
 		/* Create an active/current tablink class */
 		.tab button.active {
 			background: #ccc;
 		}
 
-/* Style the tab content 
-.options {
-	display: none;
-	padding: 6px 12px;
-	border: 1px solid #ccc;
-	border-top: none;
-}*/
+
 /********************* FOR THE TABS *********************/
 /************* FOR GHOST IMG POSITIONING ***************/
-#ghostCenter
-{
-	position: absolute;
-	top: 250px;
-	left: 525px;
+#ghostCenter {
+    position: absolute;
+    top: 250px;
+    left: 525px;
 }
-#ghostTop
-{
-	position: absolute;
-	top: 115px;
-	left: 545px;
+
+#ghostTop {
+    position: absolute;
+    top: 115px;
+    left: 545px;
 }
-#ghostLeft 
-{
-	position: absolute;
-	top: 256px;
-	left: 418px;
+
+#ghostLeft {
+    position: absolute;
+    top: 256px;
+    left: 418px;
 }
-#ghostRightFront	 
-{
-	position: absolute;
-	top: 250px;
-	left: 707px;
+
+#ghostRightFront {
+    position: absolute;
+    top: 250px;
+    left: 707px;
 }
-#ghostRightBack 
-{
-	position: absolute;
-	top: 249px;
-	left: 638px;
+
+#ghostRightBack {
+    position: absolute;
+    top: 249px;
+    left: 638px;
 }
-#ghostBottomFront
-{
-	position: absolute;
-	top: 410px;
-	left: 545px;
+
+#ghostBottomFront {
+    position: absolute;
+    top: 410px;
+    left: 545px;
 }
-#ghostBottomBack
-{
-	position: absolute;
-	top: 371px;
-	left: 500px;
+
+#ghostBottomBack {
+    position: absolute;
+    top: 371px;
+    left: 500px;
 }
 /************* FOR GHOST IMG POSITIONING ***************/
 /********************* FOR ADD USER *********************/
 
-#serialNumError{
+#serialNumError {
     font-weight: 200;
     color: #f00;
 }
@@ -353,7 +375,7 @@ footer {
 .range-slider {
     float: left;
     margin: 10px;
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .range-time {
@@ -361,10 +383,12 @@ footer {
     float: left;
     margin: 10px;
 }
+
 .range-day {
 	margin-bottom: 10px;
 	color: #000;
 }
+
 .range-day-disabled {
     opacity: .5;
 }
@@ -467,9 +491,9 @@ footer {
 /********************* FOR TIME SLIDER *********************/
 /********** FOR RECORDING LENGTH SLIDER **********/
 .RecordLength {
-	text-align: center;
-	width: 87%;
-	padding: 5%;
+    text-align: left;
+    width: 87%;
+    padding: 5%;
 }
 .recordLengthP {
 	position: absolute;
@@ -479,86 +503,91 @@ footer {
 	width: 88.5%;
 }
 .RecordLengthSlider {
-	-webkit-appearance: none;
-	width: 97%;
-	height: 15px;
-	background: #fff;
-	border: 1px solid #aaa;
-	border-radius: 4px;
-	opacity: 0.7;
-	-webkit-transition: .2s;
-	transition: opacity .2s;
+    -webkit-appearance: none;
+    float: left;
+    width: 55%;
+    height: 15px;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-left: 220px;
 }
 
-	.RecordLengthSlider:hover {
-		opacity: 1;
-	}
+    .RecordLengthSlider:hover {
+        opacity: 1;
+    }
 
-	.RecordLengthSlider::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		appearance: none;
-		width: 25px;
-		height: 25px;
-		background: #4CAF50;
-		cursor: pointer;
-	}
+    .RecordLengthSlider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
 
-	.RecordLengthSlider::-moz-range-thumb {
-		width: 25px;
-		height: 25px;
-		background: #4CAF50;
-		cursor: pointer;
-	}
+    .RecordLengthSlider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
 /********** FOR RECORDING LENGTH SLIDER **********/
 #RecordLength1 {
-	background: #ccc;
-	border: 1px solid #000;
+    background: #ccc;
+    border: 1px solid #000;
 }
+
 #RecordLength2 {
-	background: #999;
-	border: 1px solid #000;
+    background: #999;
+    border: 1px solid #000;
 }
+
 #RecordLength3 {
-	background: #ccc;
-	border: 1px solid #000;
+    background: #ccc;
+    border: 1px solid #000;
 }
+
 #RecordLength4 {
-	background: #999;
-	border: 1px solid #000;
+    background: #999;
+    border: 1px solid #000;
 }
+
 #RecordLength5 {
-	background: #ccc;
-	border: 1px solid #000;
+    background: #ccc;
+    border: 1px solid #000;
 }
 
 #RecordLength6 {
-	background: #999;
-	border: 1px solid #000;
+    background: #999;
+    border: 1px solid #000;
 }
 
 #RecordLength7 {
-	background: #ccc;
-	border: 1px solid #000;
+    background: #ccc;
+    border: 1px solid #000;
 }
 /********************* Styling by Devon *********************/
 .optionsPane {
-	width: 60%;
-	float: left;
-	padding: 15px;
+    width: 60%;
+    float: left;
+    padding: 15px;
 }
 
-	.optionsPane h1 {
-		text-align: center;
-	}
+    .optionsPane h1 {
+        text-align: center;
+    }
 
-	.optionsPane h3 {
-		float: left;
-	}
+    .optionsPane h3 {
+        float: left;
+    }
 
 .container {
-	min-height: 50px;
-	padding-top: 10px;
-	margin: 10px;
-	border-bottom: 2px dashed #ccc;
+    min-height: 50px;
+    padding-top: 10px;
+    margin: 10px;
+    border-bottom: 2px dashed #ccc;
 }
 /********************* Styling by Devon *********************/

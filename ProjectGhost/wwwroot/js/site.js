@@ -338,11 +338,30 @@ function getOnOffTime(day, val0, val1) {
 //---------------  FOR RECORDING LENGTH SLIDER ---------------//
 function getValue(myRange, output) {
 
-	output.innerText = myRange.value;
+    output.innerText = myRange.value;
 
 	myRange.oninput = function () {
 		output.innerText = this.value;
 	};
+}
+
+function toggleValue(myRange, output) {
+
+    if (myRange.value == 0) {
+        output.innerText = "Off";
+        myRange.oninput = function () {
+            output.innerText = "Off";
+        };
+    }
+    else if (myRange.value == 1) {
+        output.innerText = "On";
+        myRange.oninput = function () {
+            output.innerText = "On";
+        };
+    }
+    else {
+        alert('not working at all');
+    }
 }
 
 function toggleValue(myRange, output) {

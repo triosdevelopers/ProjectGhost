@@ -6,6 +6,10 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.dll
+*.pdb
+*.mdb
+*.apk
 
 *.dll
 *.pdb
