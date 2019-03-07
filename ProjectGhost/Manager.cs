@@ -250,6 +250,35 @@ namespace ProjectGhost
             this.Audio = Convert.ToInt32(UserProtocols[8]);
             
         }
+
+        // ANDREWS CAMERA SCHEDULE QUERY THING //
+        public void updateSchedule(int day, int on, int off, int capType, int recDur, int recDel, int snapDel)
+        {
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                int cState = 1;
+                int SnapshotCount = 5;
+                int NewScheduleID = 0;
+                con.Open();
+                string sql = "INSERT INTO CameraSchedule " +
+                    "(DayOfWeek, OnTime, Offtime, CameraState, CaptureType, RecordingDuration, RecordingDelay, SnapshotCount, SnapshotDelay) Values(" +
+                    "'" + day + "','" + on + "','" + off + "','" + cState + "','" + capType + "','" + recDur + "','" + recDel + "','" + SnapshotCount + "','" + snapDel + "')";
+                string sql2 = "SELECT * FROM CameraSchedule LAST_INSERT_ROWID";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
+                {
+                    var sched = cmd.ExecuteScalar();
+                }
+                using (SqliteCommand cmd2 = new SqliteCommand(sql2, con))
+                {
+                    var schedID = cmd2.ExecuteScalar();
+                    if (schedID != null)
+                    {
+                        NewScheduleID = Convert.ToInt32(schedID);
+                    }
+                }
+                con.Close();
+            }
+        }
     }
 
 
