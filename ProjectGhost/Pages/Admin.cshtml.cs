@@ -36,10 +36,11 @@ namespace ProjectGhost.Pages
             //Program.Connections.LedToggle(ledToggle);
 
             // Adds all the options to DB
-            Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
+            //Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
 
             // Changes the camera Options on the PI
-            //Program.Connections.send_cmd(brightness, contrast);
+            Program.Connections.Send_cmd("br", brightness);
+            Program.Connections.Send_cmd("co", contrast);
 
             ReloadOptions();
         }

@@ -238,6 +238,7 @@ function slideTime(event, ui) {
         var rangeday_d = parseInt($rangeday.data('day'));
         var $rangecheck = $rangeday.find(":checkbox");
         var $rangetime = $rangeslider.next(".range-time");
+        
     }
 
     if ($rangecheck.is(':checked')) {
@@ -261,6 +262,7 @@ function slideTime(event, ui) {
         rangeTimes[rangeday_d] = [getTime(hours0, minutes0), getTime(hours1, minutes1)];
 
         $rangetime.text(rangeTimes[rangeday_d][0] + ' - ' + rangeTimes[rangeday_d][1]);
+
 
     } else {
         $rangeday.addClass('range-day-disabled');

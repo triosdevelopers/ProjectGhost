@@ -290,7 +290,7 @@
             </div>
             <h1 class="marginTop">Proximity Settings</h1>
             <div class="container">
-                <h3>Proximity:&nbsp; <span id="proxVal">@(proxVar == 0?"Off":"On")</span></h3>
+                <h3>Proximity:&nbsp; <span id="proxVal">@(proxVar == 0 ? "Off" : "On")</span></h3>
                 <div class="toggleContainer">
                     <input type="range" min="0" max="1" value="@proxVar"
                            class="slider" name="proximityToggle" id="ProximityToggle" onchange="toggleValue(this, proxVal)">
@@ -299,24 +299,25 @@
             <div class="container"></div>
         </div>
 
-
-        <!---->
         <div id="liveFeedDiv">
             <div id="liveFeed">
                 <img id="mjpeg_dest" src="http://10.2.114.26:8080/cam.jpg"
                      alt="Live feed" style="width:100%;" />
             </div>
-            <div style="text-align:center;">
-                <button id="btnSnapshot">Take Snapshot</button>
-                <button id="btnStartRecording">Start Recording</button>
-                <button id="btnStopRecording">Stop Recording</button>
-            </div>
-            <div>
-                <button id="btnApplyChanges">Sumbit Changes</button>
-            </div>
+                <button type="submit" id="btnApplyChanges">Sumbit Changes</button>
         </div>
-
     </form>
+    <div id="RecordBtns" style="text-align:center;">
+        <form id="SnapshotForm" method="post" asp-page-handler="Snapshot">
+            <button id="btnSnapshot" class="RcdBtn">Take Snapshot</button>
+        </form>
+        <form id="StartRecordingForm" method="post" asp-page-handler="StartRecording">
+            <button id="btnStartRecording" class="RcdBtn">Start Recording</button>
+        </form>
+        <form id="StopRecordingForm" method="post" asp-page-handler="StopRecording">
+            <button id="btnStopRecording" class="RcdBtn">Stop Recording</button>
+        </form>
+</div>
 </div>
 
 

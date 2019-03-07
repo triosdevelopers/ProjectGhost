@@ -208,24 +208,50 @@ footer {
 #liveFeedDiv {
     background: #000;
     border: dashed 3px #fff;
-    height: 500px;
+    height: 360px;
     width: 500px;
     position: absolute;
     top: 265px;
     right: 20px;
     float: left;
-    float: right;
 }
 
 #liveFeed {
     background: #fff;
     margin: 25px;
+    border: solid 3px #fff;
 }
 
 #btnApplyChanges {
-    position: absolute;
-    margin-left: 185px;
-    margin-top: 50px;
+    width: 90%;
+    margin: 0 5%;
+    padding: 4px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
+}
+#RecordBtns {
+    width: 500px;
+    float: right;
+    margin-top: 370px;
+    margin-right: 20px;
+    background: #000;
+    border: dashed 3px #fff;
+}
+.RcdBtn {
+    width: 28%;
+    margin: 13px;
+    float: left;
+    padding: 4px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
 }
 /*****************	FOR THE LIVE FEED DIV ******************/
 /*****************	FOR THE RANGER SLIDERS ******************/
