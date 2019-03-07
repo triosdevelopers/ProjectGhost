@@ -2,21 +2,6 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
-
-function send_cmd(myRange, cmd) {
-
-	alert(cmd);
-	ajax_cmd.open("GET", "cmd_pipe.php?cmd=" + encodeCmd(cmd), true);
-
-	ajax_cmd.send();
-}
-
-function encodeCmd(s) {
-
-	return s.replace(/&/g, "%26").replace(/#/g, "%23").replace(/\+/g, "%2B");
-
-}
-
 var mjpeg_img;
 
 function reload_img() {
@@ -218,7 +203,7 @@ $(".range-slider").slider({
 	range: true,
 	min: 0,
 	max: 1440,
-	values: [540, 1080],
+	values: [0, 0],
 	step: 15,
 	slide: slideTime
 });
@@ -294,14 +279,14 @@ slideTime({ target: $('#range-slider-7') });
 function getOnOffTime(day, val0, val1) {
 	if (day == 1)
 	{
-		$('#OnTime1').val(val0)
-		$('#OffTime1').val(val1)
+		$('#OnTime1').val(val0);
+		$('#OffTime1').val(val1);
 	}
 
 	if (day == 2)
 	{
-		$('#OnTime2').val(val0)
-		$('#OffTime2').val(val1)
+		$('#OnTime2').val(val0);
+		$('#OffTime2').val(val1);
 	}
 
 	if (day == 3)
@@ -312,26 +297,26 @@ function getOnOffTime(day, val0, val1) {
 
 	if (day == 4)
 	{
-		$('#OnTime4').val(val0)
-		$('#OffTime4').val(val1)
+		$('#OnTime4').val(val0);
+		$('#OffTime4').val(val1);
 	}
 
 	if (day == 5)
 	{
-		$('#OnTime5').val(val0)
-		$('#OffTime5').val(val1)
+		$('#OnTime5').val(val0);
+		$('#OffTime5').val(val1);
 	}
 
 	if (day == 6)
 	{
-		$('#OnTime6').val(val0)
-		$('#OffTime6').val(val1)
+		$('#OnTime6').val(val0);
+		$('#OffTime6').val(val1);
 	}
 
 	if (day == 7)
 	{
-		$('#OnTime7').val(val0)
-		$('#OffTime7').val(val1)
+		$('#OnTime7').val(val0);
+		$('#OffTime7').val(val1);
 	}
 }
 //--------------- for range time slider values ---------------//

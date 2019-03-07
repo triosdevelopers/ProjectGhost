@@ -10,11 +10,21 @@ namespace ProjectGhost
     {
         public List<string> GhostNames = new List<string>();
         public List<string> UserProtocols = new List<string>();
+        public List<string> Schedules = new List<string>();
         public int UserID { get; set; }
         public int GhostTypeID { get; set; }
         public int GhostID { get; set; }
         public int OptionsID = -1;
+        public int ScheduleID = -1;
         public string cs = "Filename=Ghost.db";
+
+        public int Day;
+        public int On;
+        public int Off;
+        public int capType;
+        public int recDur;
+        public int recDel;
+        public int snapDel;
 
         public int Brightness;
         public int Contrast;
@@ -211,8 +221,46 @@ namespace ProjectGhost
             }
         }
 
+        // for saving the schedule to user //
+        public void ReturnLatestSchedule()
+        {
+            Schedules.Clear();
+            using (SqliteConnection con = new SqliteConnection(cs))
+            {
+                con.Open();
 
+                string sql = "SELECT * FROM CameraSchedule WHERE GhostID ='" + GhostID + "' ORDER BY CameraScheduleID desc LIMIT 1";
+                using (SqliteCommand cmd = new SqliteCommand(sql, con))
+                {
+                    SqliteDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            Schedules.Add(Convert.ToString(reader.GetValue(i)));
+                        }
+                    }
+                    reader.Close();
+                }
+                con.Close();
+                UpdateSchedules();
+            }
+        }
 
+        public void UpdateSchedules()
+        {
+            this.ScheduleID = Convert.ToInt32(UserProtocols[0]);
+            this.Day = Convert.ToInt32(UserProtocols[1]);
+            this.On = Convert.ToInt32(UserProtocols[2]);
+            this.Off = Convert.ToInt32(UserProtocols[3]);
+            this.capType = Convert.ToInt32(UserProtocols[5]);
+            this.recDur = Convert.ToInt32(UserProtocols[6]);
+            this.recDel = Convert.ToInt32(UserProtocols[7]);
+            this.snapDel = Convert.ToInt32(UserProtocols[9]);
+
+        }
+        // for saving the schedule to user //
+        // for saving the misc options to the user //
         public void ReturnLastOptions()
         {
             UserProtocols.Clear();
@@ -250,7 +298,7 @@ namespace ProjectGhost
             this.Audio = Convert.ToInt32(UserProtocols[8]);
             
         }
-
+        // for saving the  is options to the user //
         // ANDREWS CAMERA SCHEDULE QUERY THING //
         public void updateSchedule(int day, int on, int off, int capType, int recDur, int recDel, int snapDel)
         {
@@ -280,6 +328,4 @@ namespace ProjectGhost
             }
         }
     }
-
-
 }

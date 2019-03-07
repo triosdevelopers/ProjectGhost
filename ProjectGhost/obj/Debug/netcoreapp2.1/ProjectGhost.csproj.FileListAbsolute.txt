@@ -2,7 +2,6 @@ C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\bin\Debug\netcoreapp2.1\Pr
 C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\bin\Debug\netcoreapp2.1\ProjectGhost.runtimeconfig.json
 C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\bin\Debug\netcoreapp2.1\ProjectGhost.runtimeconfig.dev.json
 C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\bin\Debug\netcoreapp2.1\ProjectGhost.dll
-C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.csprojAssemblyReference.cache
 C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.csproj.CoreCompileInputs.cache
 C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.RazorAssemblyInfo.cache
 C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.RazorAssemblyInfo.cs
@@ -88,3 +87,4 @@ C:\Users\Kassi\Source\Repos\triosdevelopers\GhostProjectAndrews\ProjectGhost\Pro
 C:\Users\Kassi\Source\Repos\triosdevelopers\GhostProjectAndrews\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.pdb
 C:\Users\Kassi\Source\Repos\triosdevelopers\GhostProjectAndrews\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.csproj.CopyComplete
 C:\Users\Kassi\Source\Repos\triosdevelopers\GhostProjectAndrews\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.csprojAssemblyReference.cache
+C:\Users\andre\source\repos\ProjectGhost\ProjectGhost\obj\Debug\netcoreapp2.1\ProjectGhost.csprojAssemblyReference.cache
