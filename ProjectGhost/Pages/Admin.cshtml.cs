@@ -26,7 +26,7 @@ namespace ProjectGhost.Pages
             var GhostID = Program.Manager.GhostID;          
         }
 
-        public void OnPostMiscOptions(int brightness, int contrast, bool ledToggle, int volume, bool micToggle, bool proximityToggle, bool audioToggle)
+        public void OnPostMiscOptions(int brightness, int contrast, int ledToggle, int volume, int micToggle, int proximityToggle, int audioToggle)
         {
             Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
         }

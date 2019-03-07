@@ -504,8 +504,8 @@ footer {
 }
 .RecordLengthSlider {
     -webkit-appearance: none;
-    float: left;
-    width: 55%;
+    /*float: left;*/
+    width: 98%;
     height: 15px;
     background: #fff;
     border: 1px solid #aaa;
@@ -513,7 +513,6 @@ footer {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    margin-left: 220px;
 }
 
     .RecordLengthSlider:hover {
