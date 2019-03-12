@@ -219,8 +219,13 @@ footer {
 #liveFeed {
     background: #fff;
     margin: 25px;
-    height: 300px;
+    height: 253px;
     border: solid 3px #fff;
+}
+
+.videoRecording {
+    background: #f00;
+    border: solid 3px #f00;
 }
 
 #btnApplyChanges {

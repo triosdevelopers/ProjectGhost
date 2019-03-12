@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace ProjectGhost
 {
-   
     public class Connections
     {
 
@@ -25,9 +24,7 @@ namespace ProjectGhost
             {
                 System.Diagnostics.Debug.WriteLine($"Stack Trace: /t {ex} /n");
             }
-           
         }
-
         
         public void LedToggle(int dir)
         {

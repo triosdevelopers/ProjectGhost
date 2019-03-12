@@ -3,19 +3,7 @@
 
 // Write your Javascript code.
 
-function send_cmd(myRange, cmd) {
 
-	alert(cmd);
-	ajax_cmd.open("GET", "cmd_pipe.php?cmd=" + encodeCmd(cmd), true);
-
-	ajax_cmd.send();
-}
-
-function encodeCmd(s) {
-
-	return s.replace(/&/g, "%26").replace(/#/g, "%23").replace(/\+/g, "%2B");
-
-}
 
 var mjpeg_img;
 
@@ -294,44 +282,44 @@ slideTime({ target: $('#range-slider-7') });
 function getOnOffTime(day, val0, val1) {
 	if (day == 1)
 	{
-		$('#OnTime1').val(val0)
-		$('#OffTime1').val(val1)
+        $('#OnTime1').val(val0);
+        $('#OffTime1').val(val1);
 	}
 
 	if (day == 2)
 	{
-		$('#OnTime2').val(val0)
-		$('#OffTime2').val(val1)
+        $('#OnTime2').val(val0);
+        $('#OffTime2').val(val1);
 	}
 
 	if (day == 3)
 	{
-		$('#OnTime3').val(val0)
-		$('#OffTime3').val(val1)
+        $('#OnTime3').val(val0);
+        $('#OffTime3').val(val1);
 	}
 
 	if (day == 4)
 	{
-		$('#OnTime4').val(val0)
-		$('#OffTime4').val(val1)
+        $('#OnTime4').val(val0);
+        $('#OffTime4').val(val1);
 	}
 
 	if (day == 5)
 	{
-		$('#OnTime5').val(val0)
-		$('#OffTime5').val(val1)
+        $('#OnTime5').val(val0);
+        $('#OffTime5').val(val1);
 	}
 
 	if (day == 6)
 	{
-		$('#OnTime6').val(val0)
-		$('#OffTime6').val(val1)
+        $('#OnTime6').val(val0);
+        $('#OffTime6').val(val1);
 	}
 
 	if (day == 7)
 	{
-		$('#OnTime7').val(val0)
-		$('#OffTime7').val(val1)
+        $('#OnTime7').val(val0);
+        $('#OffTime7').val(val1);
 	}
 }
 //--------------- for range time slider values ---------------//
@@ -364,22 +352,14 @@ function toggleValue(myRange, output) {
     }
 }
 
-function toggleValue(myRange, output) {
-
-	if (myRange.value == 0) {
-		output.innerText = "Off";
-		myRange.oninput = function () {
-			output.innerText = "Off";
-		};
-	}
-	else if (myRange.value == 1) {
-		output.innerText = "On";
-		myRange.oninput = function () {
-			output.innerText = "On";
-		};
-	}
-	else {
-		alert('not working at all');
-	}
-}
 //---------------  FOR RECORDING LENGTH SLIDER  ---------------//
+//---------------  FOR RECORDING ANIMATION---------------//
+
+function recordingStarted()
+{
+    $('#mjpeg_dest').style.addClass = "videoRecording";
+}
+
+
+
+//---------------  FOR RECORDING ANIMATION---------------//
