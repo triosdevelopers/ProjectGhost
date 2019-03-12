@@ -11,6 +11,16 @@ namespace ProjectGhost.Pages
             "10:45", "11:00", "11:15", "11:30", "11:45"
         };
 
+        public int ScheduleID;
+        public int Day = Program.Manager.Day;
+        public int On = Program.Manager.On;
+        public int Off = Program.Manager.Off;
+        public int capType = Program.Manager.capType;
+        public int recDur = Program.Manager.recDur;
+        public int recDel = Program.Manager.recDel;
+        public int snapDel = Program.Manager.snapDel;
+
+
         public int OptionsID;
         public int Brightness = Program.Manager.Brightness;
         public int Contrast = Program.Manager.Contrast;
@@ -25,6 +35,7 @@ namespace ProjectGhost.Pages
         {
             var UserID = Program.Manager.UserID;
             var GhostID = Program.Manager.GhostID;
+            var ScheduleID = Program.Manager.ScheduleID;
             ReloadOptions();
         }
 
@@ -34,8 +45,9 @@ namespace ProjectGhost.Pages
             // uses Gpio Pin 17
             //Program.Connections.LedToggle(ledToggle);
 
+            
             // Adds all the options to DB
-            //Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
+            Program.Manager.AddOptions(brightness, contrast, volume, ledToggle, micToggle, proximityToggle, audioToggle);
 
             // Changes the camera Options on the PI
             //Program.Connections.Send_cmd("br", brightness);
