@@ -332,23 +332,7 @@
 						   name="brightness" id="BrightnessSlider" onchange="getValue(this, brVal)">
 				</div>
 			</div>
-			<h1 class="marginTop">Audio Settings</h1>
-			<div class="container">
-				<h3>Audio:&nbsp; <span id="audVal">@(AudioVar == 0 ? "Off" : "On")</span></h3>
-				<div class="toggleContainer">
-					<input type="range" min="0" max="1" value="@AudioVar"
-						   class="slider" name="audioToggle" id="AudioToggle" onchange="toggleValue(this, audVal)">
-				</div>
-
-			</div>
-			<div class="container">
-				<h3>Volumn:&nbsp;<span id="volVal">@VolumeVar</span></h3>
-				<div class="slidecontainer">
-					<input type="range" min="1" max="100" value="@VolumeVar"
-						   class="slider" name="volume" id="VolumeControl" onchange="getValue(this, volVal)">
-				</div>
-
-			</div>
+			
 			<h1 class="marginTop">LED Options</h1>
 			<div class="container">
 				<h3>LED:&nbsp; <span id="ledVal">@(LedVar == 0 ? "Off" : "On")</span></h3>

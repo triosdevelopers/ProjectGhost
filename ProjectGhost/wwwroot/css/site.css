@@ -223,6 +223,11 @@ footer {
     border: solid 3px #fff;
 }
 
+.videoRecording {
+    background: #f00;
+    border: solid 3px #f00;
+}
+
 #btnApplyChanges {
     width: 90%;
     margin: 0 5%;
