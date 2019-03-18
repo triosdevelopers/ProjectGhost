@@ -249,13 +249,13 @@ namespace ProjectGhost
 
         public void UpdateSchedules()
         {
-            this.ScheduleID = Convert.ToInt32(UserProtocols[0]);
-            this.Day = Convert.ToInt32(UserProtocols[1]);
-            this.On = Convert.ToInt32(UserProtocols[2]);
-            this.Off = Convert.ToInt32(UserProtocols[3]);
-            this.capType = Convert.ToInt32(UserProtocols[5]);
-            this.recDur = Convert.ToInt32(UserProtocols[6]);
-            this.recDel = Convert.ToInt32(UserProtocols[7]);
+            this.ScheduleID = Convert.ToInt32(Schedules[0]);
+            this.Day = Convert.ToInt32(Schedules[1]);
+            this.On = Convert.ToInt32(Schedules[2]);
+            this.Off = Convert.ToInt32(Schedules[3]);
+            this.capType = Convert.ToInt32(Schedules[5]);
+            this.recDur = Convert.ToInt32(Schedules[6]);
+            this.recDel = Convert.ToInt32(Schedules[7]);
             this.snapDel = Convert.ToInt32(UserProtocols[9]);
 
         }
@@ -327,5 +327,6 @@ namespace ProjectGhost
                 con.Close();
             }
         }
+        // ANDREWS CAMERA SCHEDULE QUERY THING //
     }
 }
